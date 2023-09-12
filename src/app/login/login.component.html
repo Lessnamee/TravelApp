@@ -1,0 +1,65 @@
+<body>
+  <div class="forms">
+      <form>
+          <div class="field">
+              <h2>Zaloguj się</h2>
+          </div>
+          <div class="field">
+              <input 
+              type="text" 
+              pInputText 
+              placeholder="Email"
+              formControlName="email"
+              />
+          </div>
+          <div class="field">
+              <input 
+              type="password" 
+              pInputText 
+              placeholder="Hasło"
+              formControlName="password"
+              />
+          </div>
+          <div class="buttons">
+              <button>Zaloguj się</button>
+          </div>
+      </form>
+      
+      <form>
+          <div class="field">
+              <h2>Zarejestruj się</h2>
+          </div>
+          <div class="field">
+              <input 
+              type="text" 
+              pInputText 
+              placeholder="Email"
+              formControlName="email"
+              />
+          </div>
+          <div formGroupName="passwords">
+              <div class="field">
+                  <input 
+                  type="password" 
+                  pInputText 
+                  placeholder="Hasło"
+                  formControlName="password"
+                  />
+              </div>
+         
+              <div class="field">
+                  <input 
+                  type="password" 
+                  pInputText 
+                  placeholder="Powtórz Hasło"
+                  formControlName="repeatpassword"
+                  />
+              </div>
+          </div>
+          <div class="buttons">
+              <button>Załóż konto</button>
+          </div>
+      </form>
+  </div>
+</body>
+  
