@@ -1,18 +1,29 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { LeftNavbarComponent } from './left-navbar/left-navbar.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav'
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import { HeaderComponent } from './header/header.component'
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ButtonModule } from 'primeng/button';
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './Components/login/login.component';
+import { HomeComponent } from './Components/home/home.component';
+import { LeftNavbarComponent } from './Components/left-navbar/left-navbar.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { PlanningComponent } from './Components/planning/planning.component';
+import { StartComponent } from './Components/start/start.component';
+import { FinancesComponent } from './Components/finances/finances.component';
+import { MemoriesComponent } from './Components/memories/memories.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { SettingsComponent } from './Components/settings/settings.component';
+import { environment } from '../environments/environment';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +31,14 @@ import { HeaderComponent } from './header/header.component'
     LoginComponent,
     HomeComponent,
     LeftNavbarComponent,
-    HeaderComponent
+    HeaderComponent,
+    PlanningComponent,
+    StartComponent,
+    FinancesComponent,
+    MemoriesComponent,
+    RegisterComponent,
+    SettingsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +48,12 @@ import { HeaderComponent } from './header/header.component'
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
-
+    MatDividerModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

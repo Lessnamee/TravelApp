@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "travelapp-d24c2": {
+      "hosting": {
+        "praca": [
+          "travelapp-d24c2"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "travelapp-d24c2"
+  }
+}

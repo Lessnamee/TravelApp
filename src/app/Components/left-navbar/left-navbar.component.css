@@ -1,0 +1,56 @@
+mat-sidenav {
+  margin: 10px;
+  margin-top: 78px;
+  width: 200px;
+  border-right: none;
+  background: #2e2e47;
+  color: #ffb01d;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  /* background-color: #4e4e67; */
+
+  .mat-icon {
+    margin-right: 8px;
+    color: #ffb01d;
+  }
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 65px);
+}
+
+span {
+  color: #ffb01d;
+}
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 8px;
+  font-weight: normal;
+}
+
+/* .designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: #ffb01d;
+  } */
+
+mat-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
