@@ -1,26 +1,43 @@
 <div class="field">
   <h2>Create an account</h2>
 </div>
-<div class="field">
-  <input type="text" pInputText placeholder="E-mail" formControlName="email" />
-</div>
-<div formGroupName="passwords">
+<form [formGroup]="signupForm" (ngSubmit)="signupFormSubmit()">
   <div class="field">
-    <input
-      type="password"
-      pInputText
-      placeholder="Password"
-      formControlName="password" />
+    <input type="text" pInputText placeholder="E-mail" formControlName="email" />
+    <small
+      class="p-error block"
+      *ngIf = 
+      "signupForm.get('email')?.invalid && signupForm.get('email')?.dirty"
+      >Email musi być poprawny</small>
   </div>
+  <div formGroupName="passwords">
+    <div class="field">
+      <input
+        type="password"
+        pInputText
+        placeholder="Password"
+        formControlName="password" />
+        <small
+          class="p-error block"
+          *ngIf = 
+          "signupForm.get('passwords')?.get('password')?.invalid && signupForm.get('passwords')?.get('password')?.dirty"
+          >Hasło musi mieć co najmniej 8 znaków</small>
+    </div>
 
-  <div class="field">
-    <input
-      type="password"
-      pInputText
-      placeholder="Repeat password"
-      formControlName="repeatpassword" />
+    <div class="field">
+      <input
+        type="password"
+        pInputText
+        placeholder="Repeat password"
+        formControlName="repeatpassword" />
+        <small
+          class="p-error block"
+          *ngIf = 
+          "signupForm.get('passwords')?.hasError('notSame') && signupForm.get('passwords')?.get('repeatpassword')?.dirty"
+          >Hasła muszą być zgodne</small>
+    </div>
   </div>
-</div>
-<div class="buttons">
-  <button id="signup-button" type="submit">Create</button>
-</div>
+  <div class="buttons">
+    <button id="signup-button" type="submit">Create</button>
+  </div>
+</form>

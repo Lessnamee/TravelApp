@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
-import { HeaderComponent } from './Components/header/header.component';
 import { LoginComponent } from './Components/login/login.component';
-import { LeftNavbarComponent } from './Components/left-navbar/left-navbar.component';
 import { PlanningComponent } from './Components/planning/planning.component';
 import { StartComponent } from './Components/start/start.component';
 import { FinancesComponent } from './Components/finances/finances.component';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'travel app';
   isUserLoggedIn$!: Observable<boolean>;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
   ngOnInit(): void {
     this.isUserLoggedIn$ = this.authService.isLoggedIn();
   }

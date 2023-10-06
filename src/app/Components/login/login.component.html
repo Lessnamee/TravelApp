@@ -1,28 +1,30 @@
 <div class="forms">
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
     <div class="field">
       <h2>Log in</h2>
     </div>
     <div class="field">
-      <input
-        type="text"
-        pInputText
-        placeholder="E-mail"
-        formControlName="email" />
+      <input type="text" placeholder="E-mail" pInputText formControlName="email" />
+      <small
+        class="p-error block"
+        *ngIf = 
+        "loginForm.get('email')?.invalid && loginForm.get('email')?.dirty"
+        >Email musi być poprawny</small>
     </div>
     <div class="field">
-      <input
-        type="password"
-        pInputText
-        placeholder="Password"
-        formControlName="password" />
+      <input type="password" placeholder="Password" pInputText formControlName="password" />
+      <small
+        class="p-error block"
+        *ngIf = 
+        "loginForm.get('password')?.invalid && loginForm.get('password')?.dirty"
+        >Hasło jest wymagane</small>
     </div>
     <div class="buttons">
       <button id="login-button" type="submit">Log in</button>
     </div>
   </form>
 
-  <form>
+  <form >
     <register></register>
   </form>
 </div>

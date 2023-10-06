@@ -10,6 +10,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ButtonModule } from 'primeng/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -24,6 +27,8 @@ import { RegisterComponent } from './Components/register/register.component';
 import { SettingsComponent } from './Components/settings/settings.component';
 import { environment } from '../environments/environment';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -52,8 +57,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatCardModule,
     MatFormFieldModule,
     ButtonModule,
+    ReactiveFormsModule,
+    CommonModule,
+    InputTextModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
