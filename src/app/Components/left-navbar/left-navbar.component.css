@@ -1,4 +1,4 @@
-mat-sidenav {
+ /* mat-sidenav {
   margin: 10px;
   margin-top: 78px;
   width: 200px;
@@ -16,12 +16,14 @@ mat-sidenav {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-  /* background-color: #4e4e67; */
+  /* background-color: #4e4e67; 
 
-  .mat-icon {
-    margin-right: 8px;
-    color: #ffb01d;
-  }
+  
+}
+
+mat-icon {
+  margin-right: 8px;
+  color: #ffb01d;
 }
 
 mat-sidenav-container {
@@ -43,14 +45,14 @@ span {
   font-weight: normal;
 }
 
-/* .designation {
+ .designation {
     margin-top: 2px;
     font-size: 0.7rem;
     color: #ffb01d;
-  } */
+  } 
 
 mat-divider {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.5);
-}
+}  */

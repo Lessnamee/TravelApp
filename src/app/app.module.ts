@@ -4,12 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ButtonModule } from 'primeng/button';
+import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
@@ -18,11 +14,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
-import { LeftNavbarComponent } from './Components/left-navbar/left-navbar.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { PlanningComponent } from './Components/planning/planning.component';
 import { StartComponent } from './Components/start/start.component';
@@ -40,7 +36,6 @@ import { MessageService } from 'primeng/api';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    LeftNavbarComponent,
     HeaderComponent,
     PlanningComponent,
     StartComponent,
@@ -58,10 +53,7 @@ import { MessageService } from 'primeng/api';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule,
-    MatCardModule,
-    MatFormFieldModule,
-    ButtonModule,
+    MatMenuModule,
     ReactiveFormsModule,
     CommonModule,
     InputTextModule,

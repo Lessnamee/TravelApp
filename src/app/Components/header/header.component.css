@@ -2,3 +2,20 @@ mat-toolbar {
   background: #2e2e47;
   color: #ffb01d;
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.avatar {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+
+
+
