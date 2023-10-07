@@ -3,6 +3,11 @@ mat-toolbar {
   color: #ffb01d;
 }
 
+span {
+  color: #2e2e47;
+}
+
+
 .example-spacer {
   flex: 1 1 auto;
 }

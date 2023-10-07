@@ -5,32 +5,33 @@
     [routerLink]="['/home']"
     alt="avatar" />
   <h4 class="name">E-mail</h4>
-  
+
   <span class="example-spacer"></span>
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+  <button mat-icon-button routerLink="/settings">
+    <mat-icon>face</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>dialpad</mat-icon>
-      <span>Redial</span>
+    <button mat-menu-item class="menu" routerLink="/planning">
+      <mat-icon>event</mat-icon>
+      <span>Planowanie</span>
     </button>
-    <button mat-menu-item disabled>
-      <mat-icon>voicemail</mat-icon>
-      <span>Check voice mail</span>
+    <button mat-menu-item routerLink="/finances">
+      <mat-icon>monetization_on</mat-icon>
+      <span>Finanse</span>
     </button>
-    <button mat-menu-item>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
+    <button mat-menu-item routerLink="/memories">
+      <mat-icon>forum</mat-icon>
+      <span>Wspomnienia</span>
     </button>
   </mat-menu>
-
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Konto">
-    <mat-icon>face</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Wyloguj">
-    <mat-icon>exit_to_app</mat-icon>
-  </button>
 </mat-toolbar>
 
 
