@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'register',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent {
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder, public authService: AuthService
   ) {}
 
   signupForm: FormGroup = this.formBuilder.group({
@@ -20,5 +21,4 @@ export class RegisterComponent {
     }),
   });
 
-  signupFormSubmit() {}
 }

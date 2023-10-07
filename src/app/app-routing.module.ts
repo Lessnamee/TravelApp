@@ -8,7 +8,6 @@ import { FinancesComponent } from './Components/finances/finances.component';
 import { MemoriesComponent } from './Components/memories/memories.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { SettingsComponent } from './Components/settings/settings.component';
-import { AuthGuard } from './services/auth-guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
@@ -16,11 +15,11 @@ const routes: Routes = [
   { path: 'start', component: StartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard] },
-  { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard] },
-  { path: 'memories', component: MemoriesComponent, canActivate: [AuthGuard] },
-  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent},
+  { path: 'planning', component: PlanningComponent},
+  { path: 'finances', component: FinancesComponent},
+  { path: 'memories', component: MemoriesComponent},
+  { path: 'settings', component: SettingsComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

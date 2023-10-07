@@ -35,9 +35,6 @@ input {
   border-radius: 3px;
 }
 
-.field * {
-  left: 0;
-}
 
 .forms {
   display: flex;

@@ -1,8 +1,5 @@
-<mat-sidenav-container>
-  <mat-sidenav-content>
-    <app-header *ngIf="isUserLoggedIn$ | async"></app-header>
-    <div class="content mat-elevation-z8">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<app-header></app-header>
+  <router-outlet></router-outlet>
+<footer>
+  © TravelApp 
+</footer>
