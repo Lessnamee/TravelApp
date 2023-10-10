@@ -19,6 +19,12 @@ button {
   padding: 15px;
 }
 
+.forgotPassword {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}
+
 .field h2 {
   font-size: 30px;
   padding: 0;

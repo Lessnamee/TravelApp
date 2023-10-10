@@ -25,10 +25,12 @@ import { StartComponent } from './Components/start/start.component';
 import { FinancesComponent } from './Components/finances/finances.component';
 import { MemoriesComponent } from './Components/memories/memories.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { SettingsComponent } from './Components/settings/settings.component';
 import { environment } from '../environments/environment';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MessageService } from 'primeng/api';
+import { EmailComponent } from './email/email.component';
+import { PasswordComponent } from './password/password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -42,8 +44,10 @@ import { MessageService } from 'primeng/api';
     FinancesComponent,
     MemoriesComponent,
     RegisterComponent,
-    SettingsComponent,
     NotFoundComponent,
+    EmailComponent,
+    PasswordComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
-<app-header></app-header> 
-
-<!-- <mat-sidenav-container>
-  <mat-sidenav-content> -->
+<body>
+  <div class="navbars">
+    <app-header [showNavbarItems]="authService.isLoggedIn | async"></app-header>
+  </div>
+  <div class="content">
     <router-outlet></router-outlet>
-  <!-- </mat-sidenav-content>
-</mat-sidenav-container> -->
+  </div>
+</body>
 
 <footer>
   © TravelApp

@@ -1,5 +1,5 @@
 <div class="field">
-  <h2>Create an account</h2>
+  <h2>Utwórz konto</h2>
 </div>
 <form [formGroup]="signupForm">
   <div class="field">
@@ -38,6 +38,6 @@
     </div>
   </div>
   <div class="buttons">
-    <button id="signup-button" type="submit" (click)="authService.SignUp(signupForm.get('email').value, signupForm.get('passwords.password').value)">Create</button>
+    <button id="signup-button" type="submit" (click)="authService.SignUp(signupForm.get('email').value, signupForm.get('passwords.password').value)">Zarejestruj się</button>
   </div>
 </form>

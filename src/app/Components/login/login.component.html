@@ -1,7 +1,7 @@
 <div class="forms">
   <form [formGroup]="loginForm">
     <div class="field">
-      <h2>Log in</h2>
+      <h2>Logowanie</h2>
     </div>
     <div class="field">
       <input type="text" placeholder="E-mail" pInputText formControlName="email" />
@@ -21,8 +21,12 @@
     </div>
     <div class="buttons">
       <button id="login-button" type="submit" (click)="authService.SignIn(loginForm.get('email').value, loginForm.get('password').value)"
-      >Log in</button>
+      >Zaloguj się</button>
     </div>
+    <div class="forgotPassword">
+      <button id="forgotPassword" routerLink="/forgot-password"
+      >Zapomniałem hasła</button>
+    </div>    
   </form>
 
   <form >
