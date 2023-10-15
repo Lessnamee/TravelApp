@@ -18,9 +18,9 @@
         <span>Zmień hasło</span>
       </button>
     </mat-menu>
-    <button mat-icon-button (click)="authService.SignOut()">
+    <!-- <button mat-icon-button (click)="authService.SignOut()">
       <mat-icon>exit_to_app</mat-icon>
-    </button>
+    </button> -->
 
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
@@ -37,6 +37,10 @@
       <button mat-menu-item routerLink="/memories">
         <mat-icon>forum</mat-icon>
         <span>Wspomnienia</span>
+      </button>
+      <button mat-menu-item (click)="authService.SignOut()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Wyloguj</span>
       </button>
     </mat-menu>
   </mat-toolbar>
