@@ -1,11 +1,9 @@
-<body>
-  <div class="navbars">
-    <app-header [showNavbarItems]="authService.isLoggedIn | async"></app-header>
-  </div>
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
-</body>
+<div class="navbars">
+  <app-header [showNavbarItems]="showNavbar$ | async"></app-header>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
 
 <footer>
   © TravelApp

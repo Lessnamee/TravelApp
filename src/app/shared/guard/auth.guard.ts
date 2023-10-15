@@ -6,7 +6,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,9 +16,8 @@ export class AuthGuard {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | UrlTree | boolean {
-    if (this.authService.isLoggedIn !== true) {
-      this.router.navigate(['start']);
-    }
-    return true;
+    return this.authService.isUserLoggedIn$.pipe(tap(isUserLoggedIn => {
+      !isUserLoggedIn && this.router.navigate(['start']);
+    }))
   }
 }
