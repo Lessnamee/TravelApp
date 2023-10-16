@@ -8,8 +8,6 @@ import { FinancesComponent } from './Components/finances/finances.component';
 import { MemoriesComponent } from './Components/memories/memories.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { EmailComponent } from './email/email.component';
-import { PasswordComponent } from './password/password.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
@@ -22,8 +20,6 @@ const routes: Routes = [
   { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard]},
   { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard]},
   { path: 'memories', component: MemoriesComponent, canActivate: [AuthGuard]},
-  { path: 'email', component: EmailComponent, canActivate: [AuthGuard]},
-  { path: 'password', component: PasswordComponent, canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: '**', component: NotFoundComponent },
 ];

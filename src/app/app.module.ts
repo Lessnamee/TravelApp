@@ -28,8 +28,6 @@ import { RegisterComponent } from './Components/register/register.component';
 import { environment } from '../environments/environment';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MessageService } from 'primeng/api';
-import { EmailComponent } from './email/email.component';
-import { PasswordComponent } from './password/password.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
@@ -45,8 +43,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MemoriesComponent,
     RegisterComponent,
     NotFoundComponent,
-    EmailComponent,
-    PasswordComponent,
     ForgotPasswordComponent,
   ],
   imports: [

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 
@@ -9,6 +10,12 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class ForgotPasswordComponent {
 
-  constructor(public authService: AuthService){}
+  constructor(
+    private formBuilder: FormBuilder, public authService: AuthService
+  ) {}
+
+  forgotForm: FormGroup = this.formBuilder.group({
+    email: ['', [Validators.email, Validators.required]]
+    });
 
 }

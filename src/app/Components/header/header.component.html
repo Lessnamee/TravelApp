@@ -5,23 +5,6 @@
 
     <span class="example-spacer"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="settings">
-      <mat-icon>face</mat-icon>
-    </button>
-    <mat-menu #settings="matMenu">
-      <button mat-menu-item class="settings" routerLink="/email">
-        <mat-icon>alternate_email</mat-icon>
-        <span>Zmień email</span>
-      </button>
-      <button mat-menu-item routerLink="/password">
-        <mat-icon>lock</mat-icon>
-        <span>Zmień hasło</span>
-      </button>
-    </mat-menu>
-    <!-- <button mat-icon-button (click)="authService.SignOut()">
-      <mat-icon>exit_to_app</mat-icon>
-    </button> -->
-
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>more_vert</mat-icon>
     </button>

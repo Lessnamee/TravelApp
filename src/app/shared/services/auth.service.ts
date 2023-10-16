@@ -2,9 +2,7 @@ import { Injectable} from '@angular/core';
 import { User } from '../services/user';
 import {
   AngularFirestore,
-  AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -43,7 +41,7 @@ export class AuthService {
       }
   }
 
-  // Reset Forggot password
+
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
