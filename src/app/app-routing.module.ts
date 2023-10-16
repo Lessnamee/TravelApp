@@ -10,12 +10,13 @@ import { RegisterComponent } from './Components/register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { userNotLogGuard } from './shared/guard/user-not-log.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
-  { path: 'start', component: StartComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'start', component: StartComponent, canActivate: [userNotLogGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [userNotLogGuard]},
+  { path: 'register', component: RegisterComponent, canActivate: [userNotLogGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard]},
   { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard]},
