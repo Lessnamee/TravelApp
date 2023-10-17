@@ -8,6 +8,7 @@
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: left;
   margin: 30px;
   padding: 10px;
@@ -17,7 +18,7 @@
   border-radius: 10px;
   cursor: pointer;
   height: 50px;
-  width: 500px;
+  width: 200px;
   font-size: large;
 }
 

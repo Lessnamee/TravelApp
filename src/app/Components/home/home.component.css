@@ -13,8 +13,7 @@ body {
 
 .map iframe {
   width: 100%;
-  max-width: 800px;
-  height: 400px;
+  height: 500px;
   border: none;
   border-radius: 10px;
   margin-bottom: 50px auto;

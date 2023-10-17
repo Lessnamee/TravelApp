@@ -11,6 +11,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { userNotLogGuard } from './shared/guard/user-not-log.guard';
+import { MemoriesAddComponent } from './memories-add/memories-add.component';
+import { MemorySeeComponent } from './memory-see/memory-see.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -22,6 +25,9 @@ const routes: Routes = [
   { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard]},
   { path: 'memories', component: MemoriesComponent, canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent},
+  { path: 'memories-add', component: MemoriesAddComponent},
+  { path: 'memory-see', component: MemorySeeComponent},
+  { path: 'date-picker', component: DatePickerComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

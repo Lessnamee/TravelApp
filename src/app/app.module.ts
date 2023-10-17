@@ -6,7 +6,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -29,6 +34,9 @@ import { environment } from '../environments/environment';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MessageService } from 'primeng/api';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { MemoriesAddComponent } from './memories-add/memories-add.component';
+import { MemorySeeComponent } from './memory-see/memory-see.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
 
 
 @NgModule({
@@ -44,6 +52,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RegisterComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
+    MemoriesAddComponent,
+    MemorySeeComponent,
+    DatePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +65,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    FormsModule,
     ReactiveFormsModule,
     CommonModule,
     InputTextModule,

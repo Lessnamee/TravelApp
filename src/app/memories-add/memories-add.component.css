@@ -1,0 +1,90 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content {
+    display: block;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    min-width: 50%;
+    width: auto;
+    padding: 30px;
+    margin: 30px; 
+}
+
+.header{
+    text-align: center;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: #2e2e47;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #2e2e47;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+button {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background-color: #2e2e47;
+    color: #ffb01d;
+    width: 200px;
+    border-radius: 10px;
+  }
+
+h2{
+    color: #2e2e47;
+    font-size: 30px;
+}
+
+.ng-invalid:not(form)  {
+    border: 2px solid red 
+} 
+
+.alert{
+    color: red; 
+} 
+:host ::ng-deep {
+    .p-dialog {
+        width: 30vw !important;
+    }
+    .p-dialog-title {
+        color: blue !important;
+        font-size: x-large;
+    }
+}
+
+.date-input-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Przesuń ikonkę kalendarza na prawo */
+  .mat-datepicker-toggle {
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  
