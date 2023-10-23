@@ -1,0 +1,17 @@
+li {
+    list-style: none; /* Usuwa wypunktowanie */
+    text-transform: capitalize; /* Zaczyna nazwę z wielkiej litery */
+    background-color: #f0f0f0; /* Tło jest nieco ciemniejsze */
+    color:#2e2e47;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+li:hover {
+    color: rgb(148,148,164); /* Kolor zmienia się na niebieski po najechaniu */
+    cursor: pointer;
+
+}
+
+
+/* color: #ffb01d; */

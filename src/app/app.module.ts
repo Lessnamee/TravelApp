@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -19,24 +19,28 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './Components/login/login.component';
-import { HomeComponent } from './Components/home/home.component';
-import { HeaderComponent } from './Components/header/header.component';
+import { LoginComponent } from './Components/Auth/login/login.component';
+import { HomeComponent } from './Components/Navi/home/home.component';
+import { HeaderComponent } from './Components/Navi/header/header.component';
 import { PlanningComponent } from './Components/planning/planning.component';
-import { StartComponent } from './Components/start/start.component';
+import { StartComponent } from './Components/Navi/start/start.component';
 import { FinancesComponent } from './Components/finances/finances.component';
-import { MemoriesComponent } from './Components/memories/memories.component';
-import { RegisterComponent } from './Components/register/register.component';
+import { RegisterComponent } from './Components/Auth/register/register.component';
 import { environment } from '../environments/environment';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { MessageService } from 'primeng/api';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { MemoriesAddComponent } from './memories-add/memories-add.component';
-import { MemorySeeComponent } from './memory-see/memory-see.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
+import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { MemoriesAddComponent } from './Components/Memories/memories-add/memories-add.component';
+import { MemorySeeComponent } from './Components/Memories/memory-see/memory-see.component';
+import { DatePickerComponent } from './Components/Memories/date-picker/date-picker.component';
+import { MemoryComponent } from './Components/Memories/memory/memory.component';
+import { MemoryDetailComponent } from './Components/Memories/memory-detail/memory-detail.component';
 
 
 @NgModule({
@@ -48,13 +52,14 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     PlanningComponent,
     StartComponent,
     FinancesComponent,
-    MemoriesComponent,
     RegisterComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
     MemoriesAddComponent,
     MemorySeeComponent,
     DatePickerComponent,
+    MemoryComponent,
+    MemoryDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,8 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatDialogModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
@@ -82,4 +89,4 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
   providers: [MessageService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

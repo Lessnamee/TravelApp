@@ -1,7 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import { MemoryDetailComponent } from '../memory-detail/memory-detail.component';
+
 
 @Component({
   selector: 'memory-see',
@@ -13,7 +16,7 @@ export class MemorySeeComponent implements OnInit {
   memories: any[] = [];
   memoriesEmpty: boolean = false;
 
-  constructor(private route: ActivatedRoute, private afs: AngularFirestore) {}
+  constructor(private router: Router, private route: ActivatedRoute, private afs: AngularFirestore, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -34,4 +37,16 @@ export class MemorySeeComponent implements OnInit {
       });
     }
   }
+
+  openDialog(memory: any) {
+    console.log(memory);
+    const dialogRef = this.dialog.open(MemoryDetailComponent, {data: {memory}});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+
+

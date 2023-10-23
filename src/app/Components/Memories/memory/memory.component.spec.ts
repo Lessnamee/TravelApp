@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MemoriesComponent } from './memories.component';
+import { MemoryComponent } from './memory.component';
 
-describe('MemoriesComponent', () => {
-  let component: MemoriesComponent;
-  let fixture: ComponentFixture<MemoriesComponent>;
+describe('MemoryComponent', () => {
+  let component: MemoryComponent;
+  let fixture: ComponentFixture<MemoryComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MemoriesComponent],
+      declarations: [MemoryComponent]
     });
-    fixture = TestBed.createComponent(MemoriesComponent);
+    fixture = TestBed.createComponent(MemoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

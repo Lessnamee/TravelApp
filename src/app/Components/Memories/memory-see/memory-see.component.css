@@ -1,0 +1,24 @@
+*{
+    margin-left: 10px;
+}
+
+.mat-divider{
+    background-color: #edc884;
+}
+
+.data-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    align-items: center;
+    justify-content: center;
+    /* background-color: #2e2e47; */
+    color: #2e2e47;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 40px;
+}
+

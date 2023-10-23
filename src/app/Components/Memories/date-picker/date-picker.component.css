@@ -1,0 +1,25 @@
+* {
+    margin-right: 10px;
+}
+
+mat-form-field {
+    max-height: 70px;
+    max-width: 200px;
+}
+
+button {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin: 30px;
+    background-color: #2e2e47;
+    color: #ffb01d;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    min-height: 40px;
+}
+
+button:hover {
+    background-color: #5a5a71;
+}
