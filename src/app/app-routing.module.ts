@@ -4,7 +4,7 @@ import { HomeComponent } from './Components/Navi/home/home.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { PlanningComponent } from './Components/planning/planning.component';
 import { StartComponent } from './Components/Navi/start/start.component';
-import { FinancesComponent } from './Components/finances/finances.component';
+import { FinancesComponent } from './Components/Finance/finances/finances.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { AuthGuard } from './shared/guard/auth.guard';
@@ -14,6 +14,7 @@ import { MemoriesAddComponent } from './Components/Memories/memories-add/memorie
 import { MemorySeeComponent } from './Components/Memories/memory-see/memory-see.component';
 import { DatePickerComponent } from './Components/Memories/date-picker/date-picker.component';
 import { MemoryDetailComponent } from './Components/Memories/memory-detail/memory-detail.component';
+import { WalletComponent } from './Components/Finance/wallet/wallet.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'memory-see', component: MemorySeeComponent },
   { path: 'date-picker', component: DatePickerComponent },
   { path: 'memory-detail', component: MemoryDetailComponent },
+  { path: 'wallet', component: WalletComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

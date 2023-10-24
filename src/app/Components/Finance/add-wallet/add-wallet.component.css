@@ -1,0 +1,9 @@
+/* styles.css */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Dodatkowe style dla okna dialogowego */
+.custom-dialog {
+  color: #2e2e47;; /* Kolor tła */
+  border-radius: 4px; /* Zaokrąglenie rogów */
+  padding: 16px; /* Wewnętrzny odstęp */
+}

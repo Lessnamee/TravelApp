@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 import { AppComponent } from './app.component';
@@ -30,7 +31,7 @@ import { HomeComponent } from './Components/Navi/home/home.component';
 import { HeaderComponent } from './Components/Navi/header/header.component';
 import { PlanningComponent } from './Components/planning/planning.component';
 import { StartComponent } from './Components/Navi/start/start.component';
-import { FinancesComponent } from './Components/finances/finances.component';
+import { FinancesComponent } from './Components/Finance/finances/finances.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
 import { environment } from '../environments/environment';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
@@ -41,6 +42,9 @@ import { MemorySeeComponent } from './Components/Memories/memory-see/memory-see.
 import { DatePickerComponent } from './Components/Memories/date-picker/date-picker.component';
 import { MemoryComponent } from './Components/Memories/memory/memory.component';
 import { MemoryDetailComponent } from './Components/Memories/memory-detail/memory-detail.component';
+import { WalletComponent } from './Components/Finance/wallet/wallet.component';
+import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.component';
+import { AddPeopleComponent } from './Components/Finance/add-people/add-people.component';
 
 
 @NgModule({
@@ -60,6 +64,9 @@ import { MemoryDetailComponent } from './Components/Memories/memory-detail/memor
     DatePickerComponent,
     MemoryComponent,
     MemoryDetailComponent,
+    WalletComponent,
+    AddWalletComponent,
+    AddPeopleComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +83,7 @@ import { MemoryDetailComponent } from './Components/Memories/memory-detail/memor
     MatFormFieldModule,
     MatDialogModule,
     MatDividerModule,
+    MatRadioModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

@@ -1,9 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MemoryDetailComponent } from '../memory-detail/memory-detail.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 @Component({
@@ -16,7 +16,12 @@ export class MemorySeeComponent implements OnInit {
   memories: any[] = [];
   memoriesEmpty: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private afs: AngularFirestore, public dialog: MatDialog) {}
+  constructor(
+    private route: ActivatedRoute,
+    private afs: AngularFirestore,
+    public dialog: MatDialog,
+    private authService: AuthService 
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -30,8 +35,12 @@ export class MemorySeeComponent implements OnInit {
 
   loadMemoriesForSelectedDate() {
     if (this.selectedDate) {
-      // Pobierz wspomnienia na podstawie wybranej daty
-      this.afs.collection('memories', ref => ref.where('date', '==', this.selectedDate)).valueChanges().subscribe(memories => {
+      const userId = this.authService.getLoggedInUser().uid;
+
+      this.afs.collection('memories', ref =>
+        ref.where('date', '==', this.selectedDate)
+           .where('userId', '==', userId)
+      ).valueChanges().subscribe(memories => {
         this.memories = memories;
         this.memoriesEmpty = this.memories.length === 0;
       });
@@ -39,14 +48,10 @@ export class MemorySeeComponent implements OnInit {
   }
 
   openDialog(memory: any) {
-    console.log(memory);
-    const dialogRef = this.dialog.open(MemoryDetailComponent, {data: {memory}});
+    const dialogRef = this.dialog.open(MemoryDetailComponent, { data: { memory } });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
 }
-
-
-

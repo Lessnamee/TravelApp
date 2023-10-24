@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormBuilder, FormGroup} from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'memories-add',
@@ -9,8 +9,11 @@ import { FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./memories-add.component.css']
 })
 export class MemoriesAddComponent {
-
-  constructor(private formBuilder: FormBuilder, private db: AngularFireDatabase, private afs: AngularFirestore){}
+  constructor(
+    private formBuilder: FormBuilder,
+    private afs: AngularFirestore,
+    private authService: AuthService
+  ) {}
 
   memoryForm: FormGroup = this.formBuilder.group({
     name: [''],
@@ -25,20 +28,18 @@ export class MemoriesAddComponent {
         const memoryData = {
           name: name,
           description: description,
-          date: date
+          date: date,
+          userId: this.authService.getLoggedInUser().uid 
         };
-  
-        // Tworzy referencję do kolekcji "memories" i dodaje nowy dokument
+
         this.afs.collection('memories').add(memoryData).then(docRef => {
           console.log('Dodano nowy dokument z ID: ', docRef.id);
         }).catch(error => {
           console.error('Błąd podczas dodawania dokumentu: ', error);
         });
-  
+
         this.memoryForm.reset();
       }
     }
   }
-  
-
 }

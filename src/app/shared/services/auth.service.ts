@@ -14,8 +14,8 @@ export class AuthService {
   userData$: BehaviorSubject<User | null> = new BehaviorSubject(null);
 
   constructor(
-    public afs: AngularFirestore, // Inject Firestore service
-    public afAuth: AngularFireAuth, // Inject Firebase auth service
+    public afs: AngularFirestore, 
+    public afAuth: AngularFireAuth,
     public router: Router,
   ) {
     this.checkUserExistenceInSession();
@@ -36,10 +36,26 @@ export class AuthService {
         const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
         this.setUserForApp(result.user);
         this.router.navigate(['home']);
+
+        const personData = {
+          email: result.user.email,
+          userId: result.user.uid
+        };
+        
+        
+          this.afs.collection('users').add(personData).then(docRef => {
+            console.log('Dodano nowy dokument z ID: ', docRef.id);
+          }).catch(error => {
+            console.error('Błąd podczas dodawania dokumentu: ', error);
+          });
+
+
+  
       } catch (error) {
         window.alert(error.message);
       }
   }
+  
 
 
   ForgotPassword(passwordResetEmail: string) {
@@ -81,5 +97,9 @@ export class AuthService {
       this.userData$.next(JSON.parse(userFromSession));
       this.isUserLoggedIn$.next(true);
     }
+  }
+
+  getLoggedInUser(): User | null {
+    return this.userData$.value;
   }
 }

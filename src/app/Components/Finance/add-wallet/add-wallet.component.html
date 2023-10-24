@@ -1,0 +1,10 @@
+<mat-dialog-content class="custom-dialog">
+  <h2>Podaj nazwę</h2>
+  <mat-form-field>
+    <input matInput [(ngModel)]="walletName">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Anuluj</button>
+  <button mat-button [mat-dialog-close]="walletName" cdkFocusInitial>Zapisz</button>
+</mat-dialog-actions>
