@@ -23,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSelectModule } from '@angular/material/select';
 
 
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { MemoryDetailComponent } from './Components/Memories/memory-detail/memor
 import { WalletComponent } from './Components/Finance/wallet/wallet.component';
 import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.component';
 import { AddPeopleComponent } from './Components/Finance/add-people/add-people.component';
+import { WalletListComponent } from './Components/Finance/wallet-list/wallet-list.component';
 
 
 @NgModule({
@@ -67,6 +69,7 @@ import { AddPeopleComponent } from './Components/Finance/add-people/add-people.c
     WalletComponent,
     AddWalletComponent,
     AddPeopleComponent,
+    WalletListComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,6 +87,7 @@ import { AddPeopleComponent } from './Components/Finance/add-people/add-people.c
     MatDialogModule,
     MatDividerModule,
     MatRadioModule,
+    MatSelectModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

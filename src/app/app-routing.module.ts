@@ -15,6 +15,7 @@ import { MemorySeeComponent } from './Components/Memories/memory-see/memory-see.
 import { DatePickerComponent } from './Components/Memories/date-picker/date-picker.component';
 import { MemoryDetailComponent } from './Components/Memories/memory-detail/memory-detail.component';
 import { WalletComponent } from './Components/Finance/wallet/wallet.component';
+import { WalletListComponent } from './Components/Finance/wallet-list/wallet-list.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'date-picker', component: DatePickerComponent },
   { path: 'memory-detail', component: MemoryDetailComponent },
   { path: 'wallet', component: WalletComponent},
+  { path: 'wallet-list', component: WalletListComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

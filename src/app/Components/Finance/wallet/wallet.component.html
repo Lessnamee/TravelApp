@@ -1,23 +1,14 @@
-<div class="wallet">
-    <h2>Portfel</h2>
-  
-    <div class="add-people">
-      <h3>Dodaj członków wycieczki</h3>
-      <button mat-icon-button (click)="addPeople()">
-        <mat-icon>add_circle_outline</mat-icon>
-      </button>
-    </div>
-  
-    <div class="add-expense">
-      <h3>Dodaj wydatek</h3>
-      <mat-form-field>
-        <input matInput placeholder="Kwota wydatku" [(ngModel)]="expenseAmount" type="number">
-      </mat-form-field>
-      <mat-radio-group [(ngModel)]="expenseDistribution">
-        <mat-radio-button value="equal">Podziel równo</mat-radio-button>
-        <mat-radio-button value="custom">Przypisz różne kwoty</mat-radio-button>
-      </mat-radio-group>
-      <button mat-raised-button>Zapisz</button>
-    </div>
-  </div>
-  
+<mat-form-field>
+  <mat-label>Users</mat-label>
+  <mat-select [formControl]="user" multiple>
+    <mat-select-trigger>
+      {{ user.value?.[0] || '' }}
+      <span *ngIf="(user.value?.length || 0) > 1">
+        (+{{ (user.value?.length || 0) - 1 }} {{ user.value?.length === 2 ? 'other' : 'others' }})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let user of userList" [value]="user">{{ user }}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button (click)="printSelectedUsers()">Wyświetl wybranych użytkowników</button>

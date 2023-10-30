@@ -1,34 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { AddPeopleComponent } from '../add-people/add-people.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'wallet',
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.css']
 })
-export class WalletComponent {
+export class WalletComponent implements OnInit {
+  user = new FormControl([]);
+  userList: string[] = [];
+  selectedUsers: string[] = [];
 
-  constructor(public dialog: MatDialog, private afs: AngularFirestore, private router: Router) { }
-  expenseAmount: number;
-  expenseDistribution: 'equal' | 'custom' = 'equal';
-  people: string[] = []; 
-  expenses: { person: string; amount: number }[] = []; 
+  constructor(private firestore: AngularFirestore) {}
 
-  addPeople() {
-    const dialogRef = this.dialog.open(AddPeopleComponent);
+  ngOnInit() {
+    this.firestore.collection('users').valueChanges().subscribe((users: any) => {
+      this.userList = users.map(user => user.email);
+    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      
-    })
+    this.user.valueChanges.subscribe((selectedUsers: string[]) => {
+      this.selectedUsers = selectedUsers;
+    });
+  }
+
+  printSelectedUsers() {
+    console.log('Wybrani użytkownicy:', this.selectedUsers);
+  }
 }
-
-
-
-}
-
-
-
