@@ -73,6 +73,8 @@ export class AddPeopleComponent {
       this.selectedUsers = selectedUsers;
     });
   }
+  
+
 
   chooseUsers() {
     console.log('Wybrani użytkownicy:', this.selectedUsers);

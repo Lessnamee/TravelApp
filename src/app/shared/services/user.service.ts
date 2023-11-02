@@ -19,18 +19,6 @@ export class UserService {
     return this.selectedUsers;
   }
 
-  // saveUsersToFirestore() {
-  //   const peopleData = {
-  //     people: this.selectedUsers
-  //   };
-
-  //   // Dodaj obiekt "people" do kolekcji "selectedUsers"
-  //   this.firestore.collection('selectedUsers').add(peopleData).then(() => {
-  //     console.log('Zapisano wybranych użytkowników do Firestore');
-  //   }).catch(error => {
-  //     console.error('Błąd podczas zapisywania danych do Firestore:', error);
-  //   });
-  // }
 
   saveUsersToFirestore(walletId: string) {
     const peopleData = {

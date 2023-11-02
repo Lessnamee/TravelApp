@@ -7,7 +7,7 @@
           (+{{ (user.value?.length || 0) - 1 }} {{ user.value?.length === 2 ? 'other' : 'others' }})
         </span>
       </mat-select-trigger>
-      <mat-option *ngFor="let user of userList" [value]="user">{{ user }}</mat-option>
+      <mat-option *ngFor="let user of userList" [value]="user">{{ user.email }}</mat-option>
     </mat-select>
   </mat-form-field>
   
