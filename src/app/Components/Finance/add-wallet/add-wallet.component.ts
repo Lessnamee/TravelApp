@@ -12,8 +12,4 @@ export class AddWalletComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onCancelClick(): void {
-    this.data.dialogRef.close();
-  }
-
 }

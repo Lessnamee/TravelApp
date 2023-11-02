@@ -5,6 +5,6 @@
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onCancelClick()">Anuluj</button>
+  <button mat-button mat-dialog-close>Anuluj</button>
   <button mat-button [mat-dialog-close]="walletName" cdkFocusInitial>Zapisz</button>
 </mat-dialog-actions>

@@ -19,25 +19,34 @@ export class FinancesComponent {
     private authService: AuthService
   ) { }
 
+
   addWallet() {
     const dialogRef = this.dialog.open(AddWalletComponent);
-
+  
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-      const financeData = {
-        walletId: this.afs.createId(),
-        name: result,
-        userId: this.authService.getLoggedInUser().uid
-      };
-
-      this.afs.collection('finances').add(financeData).then(docRef => {
-        console.log('Dodano nowy dokument z ID: ', docRef.id);
-      }).catch(error => {
-        console.error('Błąd podczas dodawania dokumentu: ', error);
-      });
-
+      if (result !== undefined && result !== null) {
+        console.log(`Dialog result: ${result}`);
+        if (result.trim() !== '') { 
+          const financeData = {
+            walletId: this.afs.createId(),
+            name: result,
+            userId: this.authService.getLoggedInUser().uid
+          };
+  
+          this.afs.collection('finances').add(financeData).then(docRef => {
+            console.log('Dodano nowy dokument z ID: ', docRef.id);
+          }).catch(error => {
+            console.error('Błąd podczas dodawania dokumentu: ', error);
+          });
+        } else {
+          console.log('Pole input jest puste po usunięciu białych znaków.');
+        }
+      } else {
+        console.log('Anulowano lub wynik jest pusty.');
+      }
     });
   }
+  
 
   editWallet() {
     const dialogRef = this.dialog.open(WalletListComponent);
