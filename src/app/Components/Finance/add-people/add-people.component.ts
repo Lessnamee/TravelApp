@@ -74,8 +74,6 @@ export class AddPeopleComponent {
     });
   }
   
-
-
   chooseUsers() {
     console.log('Wybrani użytkownicy:', this.selectedUsers);
     this.userService.setSelectedUsers(this.selectedUsers);

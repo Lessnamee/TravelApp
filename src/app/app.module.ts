@@ -47,6 +47,7 @@ import { WalletComponent } from './Components/Finance/wallet/wallet.component';
 import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.component';
 import { AddPeopleComponent } from './Components/Finance/add-people/add-people.component';
 import { WalletListComponent } from './Components/Finance/wallet-list/wallet-list.component';
+import { PriceComponent } from './Components/Finance/price/price.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { WalletListComponent } from './Components/Finance/wallet-list/wallet-lis
     AddWalletComponent,
     AddPeopleComponent,
     WalletListComponent,
+    PriceComponent,
   ],
   imports: [
     BrowserModule,
