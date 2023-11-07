@@ -6,14 +6,11 @@
     <input matInput placeholder="Wprowadż opis" [(ngModel)]="description">
 </mat-form-field>
 
-<mat-select [formControl]="user">
-    <mat-select-trigger>
-      {{ user.value?.[0]?.email || '' }}
-      <span *ngIf="(user.value?.length || 0) > 1">
-        (+{{ (user.value?.length || 0) - 1 }} {{ user.value?.length === 2 ? 'other' : 'others' }})
-      </span>
-    </mat-select-trigger>
-    <mat-option *ngFor="let user of walletUsers" [value]="user">{{ user.email }}</mat-option>
+<mat-form-field>
+  <mat-label>Kto płacił</mat-label>
+  <mat-select [(ngModel)]="whoPaid">
+    <mat-option *ngFor="let people of ownersList" [value]="people">{{ people.email }} </mat-option>
   </mat-select>
+</mat-form-field>
   
 <button (click)="addPrice()">Dodaj</button>

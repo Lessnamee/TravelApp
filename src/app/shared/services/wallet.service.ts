@@ -8,6 +8,7 @@ export class WalletService {
   private selectedWallet: any;
   private addCost: number;
   private description: string;
+  private whoPaid: any;
 
   constructor(
     private firestore: AngularFirestore,
@@ -37,18 +38,35 @@ export class WalletService {
     return this.description;
   }
 
-  
+  setWhoPaid(whoPaid: any) {
+    this.whoPaid = whoPaid;
+  }
+
+  getWhoPaid() {
+    return this.whoPaid;
+  }
+
+
   saveCostToFirestore(walletId: string) {
-    const costData = {
+    const newCost = {
       cost: this.addCost,
-      description: this.description
+      description: this.description,
+      whoPaid: this.whoPaid
     };
   
     this.firestore.collection('finances', ref => ref.where('walletId', '==', walletId))
       .get()
       .subscribe(querySnapshot => {
         querySnapshot.forEach(doc => {
-          doc.ref.update({ costs: costData }).then(() => {
+          let currentCosts = doc.get('costs');
+  
+          if (!Array.isArray(currentCosts)) {
+            currentCosts = [];
+          }
+  
+          currentCosts.push(newCost);
+  
+          doc.ref.update({ costs: currentCosts }).then(() => {
             console.log('Zaktualizowano dane w Firestore');
           }).catch(error => {
             console.error('Błąd podczas aktualizacji danych w Firestore:', error);
@@ -56,5 +74,7 @@ export class WalletService {
         });
       });
   }
+  
+  
 }
 

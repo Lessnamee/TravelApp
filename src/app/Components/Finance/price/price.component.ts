@@ -11,22 +11,27 @@ import { WalletService } from 'src/app/shared/services/wallet.service';
 export class PriceComponent {
   cost: number;
   description: string;
+  whoPaid: any;
 
-  user = new FormControl([]);
-  userList: User[] = []; // Używaj typu User zamiast string[]
-  selectedUsers: User[] = []; // Używaj typu User zamiast string[]
-  walletUsers: User[] = [];
+  walletInfo: any;
+  ownersList: User[] = []; 
 
 
   constructor(
-    private walletService: WalletService
+    private walletService: WalletService,
   ) {}
+
+  ngOnInit() {
+    this.walletInfo = this.walletService.getSelectedWallet().people;
+    this.ownersList = this.walletInfo.map((people: any) => ({ userId: people.userId, email: people.email }));
+  }
 
 
   addPrice() {
     console.log('Info:', this.cost, this.description);
     this.walletService.setCost(this.cost);
     this.walletService.setDescription(this.description)
+    this.walletService.setWhoPaid(this.whoPaid)
     this.walletService.saveCostToFirestore(this.walletService.getSelectedWallet().walletId);
   }
 }
