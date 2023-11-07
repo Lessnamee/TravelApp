@@ -55,8 +55,8 @@ import { WalletService } from 'src/app/shared/services/wallet.service';
 })
 export class AddPeopleComponent {
   user = new FormControl([]);
-  userList: User[] = []; // Używaj typu User zamiast string[]
-  selectedUsers: User[] = []; // Używaj typu User zamiast string[]
+  userList: User[] = []; 
+  selectedUsers: User[] = []; 
 
   constructor(
     private firestore: AngularFirestore,
