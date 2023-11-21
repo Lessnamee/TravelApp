@@ -50,6 +50,9 @@ import { WalletListComponent } from './Components/Finance/wallet-list/wallet-lis
 import { PriceComponent } from './Components/Finance/price/price.component';
 import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.component';
 import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see-wallet-list.component';
+import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
+import { PlaceComponent } from './Components/Plan/place/place.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -76,6 +79,8 @@ import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see
     PriceComponent,
     SeeWalletComponent,
     SeeWalletListComponent,
+    NewTravelComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
@@ -103,6 +108,7 @@ import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
