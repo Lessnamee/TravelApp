@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/Navi/home/home.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
-import { PlanningComponent } from './Components/planning/planning.component';
+import { PlanningComponent } from './Components/Plan/planning/planning.component';
 import { StartComponent } from './Components/Navi/start/start.component';
 import { FinancesComponent } from './Components/Finance/finances/finances.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
-import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { NotFoundComponent } from './Components/Other/not-found/not-found.component';
 import { AuthGuard } from './shared/guard/auth.guard';
-import { ForgotPasswordComponent } from './Components/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './Components/Other/forgot-password/forgot-password.component';
 import { userNotLogGuard } from './shared/guard/user-not-log.guard';
 import { MemoriesAddComponent } from './Components/Memories/memories-add/memories-add.component';
 import { MemorySeeComponent } from './Components/Memories/memory-see/memory-see.component';
@@ -32,10 +32,10 @@ const routes: Routes = [
   { path: 'memory-see', component: MemorySeeComponent },
   { path: 'date-picker', component: DatePickerComponent },
   { path: 'memory-detail', component: MemoryDetailComponent },
-  { path: 'wallet', component: WalletComponent},
-  { path: 'wallet-list', component: WalletListComponent},
-  { path: 'see-wallet', component: SeeWalletComponent},
-  { path: 'see-wallet-list', component: SeeWalletListComponent},
+  { path: 'wallet', component: WalletComponent },
+  { path: 'wallet-list', component: WalletListComponent },
+  { path: 'see-wallet', component: SeeWalletComponent },
+  { path: 'see-wallet-list', component: SeeWalletListComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
