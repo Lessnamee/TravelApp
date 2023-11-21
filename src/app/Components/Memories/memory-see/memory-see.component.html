@@ -1,28 +1,8 @@
-<!-- <div class="memories-list">
-    <h2>Data</h2>
-    <mat-divider></mat-divider>
-    <date-picker></date-picker>
-
-    <h2>Twoje wspomnienia</h2>
-    <mat-divider></mat-divider>
-    <br>
-
-
-    <ul *ngIf="memoriesEmpty; else memoriesList">
-        <li>Brak wspomnień dla tej daty.</li>
-    </ul>
-    <ng-template #memoriesList>
-        <div *ngFor="let memory of memories">
-            <app-memory [name]="memory.name" (click)="openDialog(memory)"></app-memory>
-        </div>
-    </ng-template>
-</div> -->
-
 <div class="memories-list">
     <div class="data-header">
         <h2>Data</h2>
         <button mat-icon-button routerLink="/memories-add">
-            <mat-icon>add</mat-icon> <!-- Ikonka plus -->
+            <mat-icon>add</mat-icon> 
         </button>
     </div>
     <mat-divider></mat-divider>
@@ -46,4 +26,8 @@
         </div>
         
     </ng-template>
-</div>
+</div> 
+
+  
+  
+  
