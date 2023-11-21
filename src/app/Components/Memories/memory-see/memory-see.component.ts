@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class MemorySeeComponent implements OnInit {
   selectedDate: Date;
   memories: any[] = [];
+  allMemories: any[] = [];
   memoriesEmpty: boolean = false;
 
   constructor(
@@ -24,6 +25,7 @@ export class MemorySeeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.loadAllMemories()
     this.route.params.subscribe(params => {
       const dateString = params['date'];
       if (dateString) {
@@ -33,10 +35,10 @@ export class MemorySeeComponent implements OnInit {
     });
   }
 
-  loadMemoriesForSelectedDate() {
-    if (this.selectedDate) {
-      const userId = this.authService.getLoggedInUser().uid;
 
+  loadMemoriesForSelectedDate() {
+    const userId = this.authService.getLoggedInUser().uid;
+    if (this.selectedDate) {
       this.afs.collection('memories', ref =>
         ref.where('date', '==', this.selectedDate)
            .where('userId', '==', userId)
@@ -44,7 +46,19 @@ export class MemorySeeComponent implements OnInit {
         this.memories = memories;
         this.memoriesEmpty = this.memories.length === 0;
       });
+
     }
+  }
+
+  loadAllMemories() {
+    const userId = this.authService.getLoggedInUser().uid;
+    this.afs.collection('memories', ref =>
+          ref.where('userId', '==', userId)
+    ).valueChanges().subscribe(memories => {
+      this.memories = memories;
+      this.memoriesEmpty = this.memories.length === 0;
+    });
+
   }
 
   openDialog(memory: any) {
@@ -55,3 +69,9 @@ export class MemorySeeComponent implements OnInit {
     });
   }
 }
+
+
+
+
+
+
