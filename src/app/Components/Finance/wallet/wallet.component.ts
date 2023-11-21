@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component} from '@angular/core';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { WalletService } from 'src/app/shared/services/wallet.service';
 export class WalletComponent{
   walletName: string;
 
-  constructor(private route: ActivatedRoute, private walletService: WalletService) {
+  constructor(private walletService: WalletService) {
     const selectedWallet = this.walletService.getSelectedWallet();
 
     if (selectedWallet) {

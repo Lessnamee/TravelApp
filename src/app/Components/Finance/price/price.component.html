@@ -1,16 +1,18 @@
-<mat-form-field>
+<div class="vertical-layout">
+  <mat-form-field>
     <input matInput type="number" placeholder="Wprowadź koszt" [(ngModel)]="cost">
-</mat-form-field>
+  </mat-form-field>
 
-<mat-form-field>
+  <mat-form-field>
     <input matInput placeholder="Wprowadż opis" [(ngModel)]="description">
-</mat-form-field>
+  </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Kto płacił</mat-label>
-  <mat-select [(ngModel)]="whoPaid">
-    <mat-option *ngFor="let people of ownersList" [value]="people">{{ people.email }} </mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Kto płacił</mat-label>
+    <mat-select [(ngModel)]="whoPaid">
+      <mat-option *ngFor="let people of ownersList" [value]="people">{{ people.email }}</mat-option>
+    </mat-select>
+  </mat-form-field>
   
-<button (click)="addPrice()">Dodaj</button>
+  <button class="compact-button" (click)="addPrice()">Dodaj</button>
+</div>

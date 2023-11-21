@@ -18,3 +18,17 @@ button {
     }
   }
   
+
+  .vertical-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .compact-button {
+    width: fit-content; /* Ustawia szerokość przycisku na minimalną wymaganą szerokość zawartości */
+    margin-top: 10px; /* Dodaje odstęp od góry, aby oddzielić przycisk od pól formularza */
+    margin-bottom: 500px;
+    margin-left: 10px;
+  }
+  
+  

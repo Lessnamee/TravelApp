@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { WalletListComponent } from 'src/app/Components/Finance/wallet-list/wallet-list.component';
+import { SeeWalletListComponent } from '../see-wallet-list/see-wallet-list.component';
 
 
 @Component({
@@ -50,6 +51,9 @@ export class FinancesComponent {
 
   editWallet() {
     const dialogRef = this.dialog.open(WalletListComponent);
+  }
 
+  seeWallet() {
+    const dialogRef = this.dialog.open(SeeWalletListComponent);
   }
 }

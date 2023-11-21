@@ -48,6 +48,8 @@ import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.c
 import { AddPeopleComponent } from './Components/Finance/add-people/add-people.component';
 import { WalletListComponent } from './Components/Finance/wallet-list/wallet-list.component';
 import { PriceComponent } from './Components/Finance/price/price.component';
+import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.component';
+import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see-wallet-list.component';
 
 
 @NgModule({
@@ -72,6 +74,8 @@ import { PriceComponent } from './Components/Finance/price/price.component';
     AddPeopleComponent,
     WalletListComponent,
     PriceComponent,
+    SeeWalletComponent,
+    SeeWalletListComponent,
   ],
   imports: [
     BrowserModule,
