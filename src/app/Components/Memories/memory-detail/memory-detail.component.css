@@ -1,5 +1,7 @@
-.tekst{
+.title{
     text-transform: capitalize;
+    background-color: #2e2e47;
+    color: #ffb01d;
 }
 
 button {

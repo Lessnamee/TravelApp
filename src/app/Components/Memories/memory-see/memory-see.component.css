@@ -1,6 +1,6 @@
-*{
+/* *{
     margin-left: 10px;
-}
+} */
 
 .mat-divider{
     background-color: #edc884;
@@ -10,6 +10,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 10px;
+}
+
+.memories-title {
+    margin-left: 10px;
+}
+
+.memories-list {
+    margin-inline: 10px;
+}
+
+.memory-item {
+    padding-block: 5px;
 }
 
 button {

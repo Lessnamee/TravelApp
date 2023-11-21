@@ -28,16 +28,22 @@
     <mat-divider></mat-divider>
     <date-picker></date-picker>
 
-    <h2>Twoje wspomnienia</h2>
-    <mat-divider></mat-divider>
-    <br>
-
-    <ul *ngIf="memoriesEmpty; else memoriesList">
-        <li>Brak wspomnień dla tej daty.</li>
-    </ul>
+    <div class="memories">
+        <h2 class="memories-title">Twoje wspomnienia</h2>
+        <mat-divider></mat-divider>
+        <br>
+    
+        <ul *ngIf="memoriesEmpty; else memoriesList">
+            <li>Brak wspomnień dla tej daty.</li>
+        </ul>
+    </div>
+    
     <ng-template #memoriesList>
-        <div *ngFor="let memory of memories">
-            <app-memory [name]="memory.name" (click)="openDialog(memory)"></app-memory>
+        <div class="memories-list">
+            <div *ngFor="let memory of memories" class="memory-item">
+                <app-memory [name]="memory.name" (click)="openDialog(memory)"></app-memory>
+            </div>
         </div>
+        
     </ng-template>
 </div>
