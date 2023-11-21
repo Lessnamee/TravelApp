@@ -22,7 +22,7 @@
     max-width: 200px;
 } */
 
-button {
+.pick-date-btn {
     align-items: center;
     justify-content: center;
     text-align: left;
@@ -35,7 +35,7 @@ button {
     min-height: 40px;
 }
 
-button:hover {
+.pick-date-btn:hover {
     background-color: #5a5a71;
 }
 
@@ -45,5 +45,13 @@ button:hover {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+
+    .date-input {
+        margin-top: 10px;
+    }
+
+    .pick-date-btn {
+        margin-top: 10px;
     }
   }
