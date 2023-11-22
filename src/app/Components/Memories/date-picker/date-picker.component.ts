@@ -7,16 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent {
-  @Output() dateSelected = new EventEmitter<Date>();
-  selectedDate: Date;
-
   constructor(private router: Router) { }
 
-  onDateSelected() {
-    if (this.selectedDate) {
+  onDateSelected(selectedDate: Date) {
       // Przekierowanie do widoku MemorySeeComponent i przekazanie daty jako parametru
-      this.router.navigate(['/memory-see', { date: this.selectedDate.toISOString() }]);
-    }
+      this.router.navigate(['/memory-see', { date: selectedDate.toISOString() }]);
   }
 }
 

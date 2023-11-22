@@ -1,15 +1,26 @@
 <div class="memories-list">
     <div class="data-header">
-        <h2>Data</h2>
+        <!-- <h2>Data</h2> -->
+        <!-- <button mat-fab extended>
+            Dodaj wspomnienie <mat-icon>add</mat-icon> 
+          </button>
         <button mat-icon-button routerLink="/memories-add">
+            <mat-icon>add</mat-icon> 
+        </button> -->
+        <!-- <date-picker></date-picker> -->
+        <button class="add-memory-btn" mat-raised-button extended routerLink="/memories-add">           
+            Dodaj wspomnienie 
             <mat-icon>add</mat-icon> 
         </button>
     </div>
     <mat-divider></mat-divider>
-    <date-picker></date-picker>
+    <!-- <date-picker></date-picker> -->
 
     <div class="memories">
-        <h2 class="memories-title">Twoje wspomnienia</h2>
+        <div class="memories-title">
+            <h2>Twoje wspomnienia</h2>
+            <date-picker></date-picker> 
+        </div>
         <mat-divider></mat-divider>
         <br>
     

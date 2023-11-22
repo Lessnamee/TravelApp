@@ -1,7 +1,9 @@
 <mat-toolbar>
   <mat-toolbar *ngIf="showNavbarItems">
-    <img class="avatar mat-elevation-z8" src="assets/images/avatar.png" [routerLink]="['/home']" alt="avatar" />
-    <h4 class="name" >{{(email)}}</h4>
+    <div class="user-data" [routerLink]="['/home']" >
+      <img class="avatar mat-elevation-z8" src="assets/images/avatar.png" alt="avatar" />
+      <h4 class="name" >{{(email)}}</h4>
+    </div>
 
     <span class="example-spacer"></span>
 

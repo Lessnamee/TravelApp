@@ -1,5 +1,6 @@
 :root {
   --common-height: 56px;
+  --default-space: 10px;
   --secondary-color: #ffb01d;
   --primary-color: #2e2e47;
   --primary-color-on-hover: #5a5a71;
