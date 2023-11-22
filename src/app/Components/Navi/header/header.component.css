@@ -26,11 +26,12 @@ span {
   align-items: center;
   height: 80%;
   padding: 5px;
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
 }
 
 .user-data:hover {
   background-color: var(--primary-color-on-hover);
   cursor: pointer;
-  border-radius: 10px;
 }
 
