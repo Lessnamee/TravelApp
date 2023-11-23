@@ -53,7 +53,7 @@ import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see
 import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
 import { PlaceComponent } from './Components/Plan/place/place.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -96,6 +96,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatFormFieldModule,
     MatDialogModule,
+    MatCardModule,
     MatDividerModule,
     MatRadioModule,
     MatSelectModule,
@@ -108,7 +109,7 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],
