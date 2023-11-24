@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard], data: {animation: 'Subpage'} },
   { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard], data: {animation: 'Subpage'} },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'memories-add', component: MemoriesAddComponent, data: {animation: 'Subpage'} },
+  { path: 'memories-add', component: MemoriesAddComponent, data: {animation: 'Subpage-add-memory'} },
   { path: 'memory-see', component: MemorySeeComponent, data: {animation: 'Subpage'} },
   { path: 'date-picker', component: DatePickerComponent },
   { path: 'memory-detail', component: MemoryDetailComponent },

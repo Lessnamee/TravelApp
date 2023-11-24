@@ -1,41 +1,46 @@
 <div class="container">
     <div class="form-content">
       <div class="header">
-        <h2>Dodawanie wspomnienia</h2>
+        <p>Kreator wspomnień</p>
       </div>
   
       <form [formGroup]="memoryForm" (ngSubmit)="addMemory()">
         <div class="field">
-          <label for="date">Data:</label>
           <div class="date-input-container">
-            <input matInput [matDatepicker]="picker" placeholder="Wybierz datę" formControlName="date" >
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-form-field>
+              <mat-label>Dzień wydarzenia:</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="date" class="date-input" >
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            </mat-form-field>
           </div>
           <mat-datepicker #picker></mat-datepicker>
         </div>        
 
         <div class="field">
-          <label for="name">Nazwa:</label>
-          <textarea rows="2" pInputTextarea formControlName="name"></textarea>
-          <small class="p-error block" *ngIf="memoryForm.get('name')?.invalid && memoryForm.get('name')?.dirty">
-            Nieprawidłowa nazwa
-          </small>
+          <mat-form-field>
+            <mat-label>Nazwa</mat-label>
+            <textarea matInput rows="1" pInputTextarea formControlName="name"></textarea>
+            <small class="p-error block" *ngIf="memoryForm.get('name')?.invalid && memoryForm.get('name')?.dirty">
+              Nieprawidłowa nazwa
+            </small>
+          </mat-form-field>
         </div>
   
         <div class="field">
-          <label for="description">Opis:</label>
-          <textarea rows="10" pInputTextarea formControlName="description"></textarea>
-          <small class="p-error block" *ngIf="memoryForm.get('description')?.invalid && memoryForm.get('description')?.dirty">
-            Nieprawidłowy opis
-          </small>
+          <mat-form-field>
+            <mat-label>Opis:</mat-label>
+            <textarea matInput rows="3" pInputTextarea formControlName="description"></textarea>
+            <small class="p-error block" *ngIf="memoryForm.get('description')?.invalid && memoryForm.get('description')?.dirty">
+              Nieprawidłowy opis
+            </small>
+          </mat-form-field>
         </div>
   
         <div class="buttons">
-          <button type="submit">Dodaj wspomnienie</button>
+          <button class="add-memory-btn" type="submit">Dodaj wspomnienie</button>
         </div>
   
       </form>
   
     </div>
   </div>
-  
