@@ -19,6 +19,7 @@ import { WalletListComponent } from './Components/Finance/wallet-list/wallet-lis
 import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see-wallet-list.component';
 import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.component';
 import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
+import { ActivityComponent } from './Components/Plan/activity/activity.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: 'see-wallet-list', component: SeeWalletListComponent },
   { path: 'new-travel', component: NewTravelComponent },
   { path: 'place', component: PlanningComponent },
+  { path: 'activity', component: ActivityComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

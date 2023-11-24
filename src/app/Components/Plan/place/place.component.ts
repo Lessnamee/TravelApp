@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
+
 @Component({
   selector: 'place',
   templateUrl: './place.component.html',
@@ -8,6 +9,7 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
 })
 export class PlaceComponent {
 
+  
   city: string = '';
   weatherData: any;
 
@@ -23,5 +25,8 @@ export class PlaceComponent {
   private kelvinToCelsius(kelvin: number): number {
     return kelvin - 273.15;
   }
+
+
+
 }
 

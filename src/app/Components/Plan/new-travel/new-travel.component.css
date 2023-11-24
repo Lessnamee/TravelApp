@@ -1,0 +1,21 @@
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    padding-top: 0px;
+    margin-bottom: 50px;
+}
+button {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background-color: #2e2e47;
+    color: #ffb01d;
+    width: 200px;
+    border-radius: 10px;
+  }
+
+  .container {
+    max-width: 400px;
+    margin: 0 auto;
+  }

@@ -24,6 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 import { AppComponent } from './app.component';
@@ -54,6 +55,8 @@ import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.comp
 import { PlaceComponent } from './Components/Plan/place/place.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { ActivityComponent } from './Components/Plan/activity/activity.component';
+
 
 @NgModule({
   declarations: [
@@ -80,7 +83,8 @@ import { MatCardModule } from '@angular/material/card';
     SeeWalletComponent,
     SeeWalletListComponent,
     NewTravelComponent,
-    PlaceComponent
+    PlaceComponent,
+    ActivityComponent
   ],
   imports: [
     BrowserModule,
@@ -100,6 +104,7 @@ import { MatCardModule } from '@angular/material/card';
     MatDividerModule,
     MatRadioModule,
     MatSelectModule,
+    MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
