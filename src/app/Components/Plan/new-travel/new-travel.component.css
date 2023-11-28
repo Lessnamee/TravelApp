@@ -19,3 +19,27 @@ button {
     max-width: 400px;
     margin: 0 auto;
   }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+
+  h2 {
+    color: #333;
+  }
+
+  p {
+    margin: 10px 0;
+  }

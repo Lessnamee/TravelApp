@@ -8,7 +8,8 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   styleUrls: ['./place.component.css']
 })
 export class PlaceComponent {
-
+  startDate: string;
+  endDate: string;
   
   city: string = '';
   weatherData: any;

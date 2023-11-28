@@ -21,7 +21,9 @@ export class ActivityComponent {
     pływanie: false,
     koncert: false,
     zwiedzanie: false,
-    wspinaczka: false
+    wspinaczka: false,
+    dziecko: false,
+    służbowo: false
 
   });
 

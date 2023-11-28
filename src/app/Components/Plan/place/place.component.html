@@ -2,10 +2,23 @@
   <h4>Miejsce podróży: </h4>
   <input type="text" id="city" [(ngModel)]="city" />
 </div>
-<!-- <button (click)="getWeather()">Sprawdź pogodę</button>
-  
-    <div *ngIf="weatherData" class="weather-info">
-      <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
-      <p>Temperatura: {{ weatherData.main.temp }} °C</p>
-      <p>Opis: {{ weatherData.weather[0].description }}</p>
-    </div> -->
+
+<div class="input-group">
+  <h4>Data wycieczki: </h4>
+  <div class="date-inputs">
+    <span class="date-label">OD</span>
+    <input type="date" id="startDate" [(ngModel)]="startDate" />
+    <span class="date-label">DO</span>
+    <input type="date" id="endDate" [(ngModel)]="endDate" />
+  </div>
+</div>
+
+
+
+<button (click)="getWeather()">Sprawdź pogodę</button>
+
+<div *ngIf="weatherData" class="weather-info">
+  <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+  <p>Temperatura: {{ weatherData.main.temp }} °C</p>
+  <p>Opis: {{ weatherData.weather[0].description }}</p>
+</div>
