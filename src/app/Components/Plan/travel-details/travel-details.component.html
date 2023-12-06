@@ -1,0 +1,22 @@
+<h4>Rzeczy do zabrania:</h4>
+
+<div>
+  <h5>Standard</h5>
+  <div *ngFor="let item of standardPackingList">
+    <label>
+      <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+    </label>
+  </div>
+</div>
+
+<div *ngFor="let activity of activityPackingList">
+  <h5>{{ activity.activity }}</h5>
+  <div *ngFor="let item of activity.items">
+    <label>
+      <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+    </label>
+  </div>
+</div>
+
+
+

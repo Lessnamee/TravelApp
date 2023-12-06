@@ -56,6 +56,7 @@ import { PlaceComponent } from './Components/Plan/place/place.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
+import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { ActivityComponent } from './Components/Plan/activity/activity.component
     SeeWalletListComponent,
     NewTravelComponent,
     PlaceComponent,
-    ActivityComponent
+    ActivityComponent,
+    TravelDetailsComponent
   ],
   imports: [
     BrowserModule,
