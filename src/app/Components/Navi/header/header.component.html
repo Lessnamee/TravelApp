@@ -1,4 +1,7 @@
 <mat-toolbar>
+  <div class="default-button" *ngIf="!showNavbarItems" routerLink="/login">
+    <mat-icon aria-hidden="false" fontIcon="home"></mat-icon>
+  </div>
   <mat-toolbar *ngIf="showNavbarItems">
     <div class="user-data" [routerLink]="['/home']" >
       <img class="avatar mat-elevation-z8" src="assets/images/avatar.png" alt="avatar" />

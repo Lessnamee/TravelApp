@@ -9,11 +9,11 @@
   padding: 15px;
 }
 
-.title {
+/* .title {
   background-color: var(--primary-color);
   color: var(--secondary-color) !important;
   border-radius: 15px;
-}
+} */
 
 button {
   display: flex;
