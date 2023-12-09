@@ -19,16 +19,14 @@ export class ActivityComponent {
     trekking: false,
     wspinaczka: false,
     dziecko: false,
-
-  });
-
-  transport = this.formBuilder.group({
     auto: false,
     pociąg: false,
     autokar: false,
     samolot: false,
     motocykl: false
+
   });
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -48,3 +46,6 @@ export class ActivityComponent {
   }
 
 }
+
+
+

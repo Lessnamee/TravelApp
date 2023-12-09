@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ActivityService } from 'src/app/shared/services/activity.service';
 import { PackingListService } from 'src/app/shared/services/packing-list.service';
 
@@ -14,7 +13,6 @@ export class TravelDetailsComponent implements OnInit {
   standardPackingList: string[] = [];
 
   constructor(
-    private route: ActivatedRoute,
     private packingListService: PackingListService,
     private activityService: ActivityService
   ) {}

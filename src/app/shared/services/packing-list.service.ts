@@ -1,5 +1,3 @@
-// packing-list.service.ts
-
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -21,6 +19,7 @@ export class PackingListService {
       'czapka/kapelusz',
       'buty',
       'pieniądze',
+      'ubezpieczenie',
       'dowód osobisty',
       'paszport',
       'prawo jazdy',
@@ -138,10 +137,58 @@ export class PackingListService {
       'jedzenie dla dziecka',
       'pielucha',
     ],
+    auto: [
+      'ubezpieczenie samochodu',
+      'dowód rejestracyjny',
+      'kamizelka odblaskowa',
+      'trójkąt ostrzegawczy',
+      'gaśnica',
+      'komplet żarówek',
+      'koło zapasowe',
+      'podnośnik',
+      'lina holownicza',
+      'zestaw naprawczy',
+      'statyw na telefon',
+      'uchwyt na kubek',
+      'płyty z muzyką',
+      'poduszka',
+    ],
+    pociąg: [
+      'bilety na pociąg',
+      'poduszka podróżna',
+      'koc podróżny',
+      'zatyczki do uszu',
+      'lek na chorobę lokomocyjną',
+    ],
+    autokar: [
+      'bilety na autokar',
+      'lek na chorobę lokomocyjną',
+      'poduszka podróżna',
+      'koc podróżny',
+    ],
+    samolot: [
+      'bilety na samolot',
+      'wiza',
+      'lek na chorobę lokomocyjną',
+      'zatyczki do uszu',
+    ],
+    motocykl: [
+      'dowód rejestracyjny',
+      'ubezpieczenie motocykla',
+      'kask',
+      'kurtka motocyklowa',
+      'spodnie motocyklowe',
+      'rękawice motocyklowe',
+      'buty motocyklowe',
+      'zestaw naprawczy',
+      'olej do silnika',
+    ],
   };
 
   getPackingList(activity: string): string[] {
     return this.packingLists[activity] || [];
   }
+
+
 }
 
