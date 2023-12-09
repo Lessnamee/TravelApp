@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../services/user';
 import {
   AngularFirestore,
@@ -6,6 +6,7 @@ import {
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,7 @@ export class AuthService {
   userData$: BehaviorSubject<User | null> = new BehaviorSubject(null);
 
   constructor(
-    public afs: AngularFirestore, 
+    public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
     public router: Router,
   ) {
@@ -31,31 +32,30 @@ export class AuthService {
     }
   }
 
-  async SignUp(email: string, password: string): Promise<void>  {
-      try {
-        const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
-        this.setUserForApp(result.user);
-        this.router.navigate(['home']);
+  async SignUp(email: string, password: string): Promise<void> {
+    try {
+      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      this.setUserForApp(result.user);
+      this.router.navigate(['home']);
 
-        const personData = {
-          email: result.user.email,
-          userId: result.user.uid
-        };
-        
-        
-          this.afs.collection('users').add(personData).then(docRef => {
-            console.log('Dodano nowy dokument z ID: ', docRef.id);
-          }).catch(error => {
-            console.error('Błąd podczas dodawania dokumentu: ', error);
-          });
+      const personData = {
+        email: result.user.email,
+        userId: result.user.uid
+      };
 
 
-  
-      } catch (error) {
-        window.alert(error.message);
-      }
+      this.afs.collection('users').add(personData).then(docRef => {
+        console.log('Dodano nowy dokument z ID: ', docRef.id);
+      }).catch(error => {
+        console.error('Błąd podczas dodawania dokumentu: ', error);
+      });
+
+
+
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
-  
 
 
   ForgotPassword(passwordResetEmail: string) {
@@ -68,14 +68,14 @@ export class AuthService {
         window.alert(error);
       });
   }
- 
+
   SignOut() {
     return this.afAuth.signOut()
-    .then(() => {
-      localStorage.removeItem('user');
-      this.isUserLoggedIn$.next(false);
-      this.router.navigate(['start']);
-    });
+      .then(() => {
+        localStorage.removeItem('user');
+        this.isUserLoggedIn$.next(false);
+        this.router.navigate(['start']);
+      });
   }
 
   private setUserForApp(user: any): void {
