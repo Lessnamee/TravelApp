@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 
 @Component({
@@ -13,9 +14,10 @@ import { WalletService } from 'src/app/shared/services/wallet.service';
 export class SeeWalletListComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any, 
-  private firestore: AngularFirestore, 
-  private router: Router,  
-  private walletService: WalletService
+    private firestore: AngularFirestore, 
+    private router: Router,  
+    private walletService: WalletService,
+    private authService: AuthService
   ) { }
   
   wallet = new FormControl<string>('');
@@ -23,8 +25,24 @@ export class SeeWalletListComponent {
   selectedWallet: any = null; 
 
   ngOnInit() {
-    this.firestore.collection('finances').valueChanges().subscribe((finances: any) => {
-      this.walletList = finances; 
+    this.authService.userData$.subscribe(user => {
+      if (user) {
+        const loggedInUserId = user.uid;
+
+        this.firestore.collection('finances').snapshotChanges().subscribe((finances: any) => {
+          this.walletList = finances.map(fin => {
+            const data = fin.payload.doc.data();
+            const id = fin.payload.doc.id;
+            
+            const people = data.people ?? [];
+            const userId = data.userId ?? '';
+
+            return { id, ...data, people, userId };
+          }).filter(wallet => 
+            wallet.people.some(person => person.userId === loggedInUserId) || wallet.userId === loggedInUserId
+          );
+        });
+      }
     });
 
     this.wallet.valueChanges.subscribe((selectedWallet: string) => {
@@ -41,5 +59,7 @@ export class SeeWalletListComponent {
       console.log('Nie wybrano portfela.');
     }
   }
-
 }
+
+
+

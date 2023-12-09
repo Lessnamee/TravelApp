@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from './user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,14 @@ export class UserService {
 
   getSelectedUsers() {
     return this.selectedUsers;
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.firestore.collection<User>('users').valueChanges();
+  }
+
+  getUserById(userId: string): Observable<User> {
+    return this.firestore.doc<User>(`users/${userId}`).valueChanges();
   }
 
 

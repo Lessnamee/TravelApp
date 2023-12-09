@@ -10,9 +10,13 @@
   <mat-form-field>
     <mat-label>Kto płacił</mat-label>
     <mat-select [(ngModel)]="whoPaid">
-      <mat-option *ngFor="let people of ownersList" [value]="people">{{ people.email }}</mat-option>
+      <mat-option *ngFor="let person of ownersList" [value]="person">
+        {{ person.email }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
   
   <button class="compact-button" (click)="addPrice()">Dodaj</button>
 </div>
+
+

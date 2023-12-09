@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { User } from 'src/app/shared/services/user';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 
@@ -35,4 +34,12 @@ export class PriceComponent {
     this.walletService.saveCostToFirestore(this.walletService.getSelectedWallet().walletId);
   }
 }
+
+
+
+
+
+
+
+
 
