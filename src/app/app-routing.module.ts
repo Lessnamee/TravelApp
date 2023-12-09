@@ -24,8 +24,8 @@ import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
-  { path: 'start', component: StartComponent, canActivate: [userNotLogGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [userNotLogGuard] },
+  { path: 'start', component: StartComponent, canActivate: [userNotLogGuard], data: {animation: 'Home'} },
+  { path: 'login', component: LoginComponent, canActivate: [userNotLogGuard], data: {animation: 'Login'} },
   { path: 'register', component: RegisterComponent, canActivate: [userNotLogGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: {animation: 'Home'}},
   { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard], data: {animation: 'Subpage'} },
