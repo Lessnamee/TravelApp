@@ -29,5 +29,13 @@ footer {
 
 button {
   height: var(--common-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px #000000;
 }
 

@@ -1,6 +1,6 @@
 <div class="forms">
   <form [formGroup]="loginForm">
-    <div class="field">
+    <div class="field title">
       <h2>Logowanie</h2>
     </div>
     <div class="field">
@@ -20,18 +20,20 @@
         >Hasło jest wymagane</small>
     </div>
     <div class="buttons">
-      <button id="login-button" type="submit" (click)="authService.SignIn(loginForm.get('email').value, loginForm.get('password').value)"
+      <button id="login-button" class="text-shadow" type="submit" (click)="authService.SignIn(loginForm.get('email').value, loginForm.get('password').value)"
       >Zaloguj się</button>
     </div>
     <div class="forgotPassword">
-      <button id="forgotPassword" routerLink="/forgot-password"
+      <button id="forgotPassword" class="text-shadow" routerLink="/forgot-password"
       >Zapomniałem hasła</button>
-    </div>    
+    </div>
+    <div class="forgotPassword">
+      <button id="createAccount" routerLink="/forgot-password"
+      >Stwórz konto</button>
+    </div>      
   </form>
 
-  <form >
-    <register></register>
-  </form>
+    <!-- <register></register> -->
 </div>
 
 
