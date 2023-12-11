@@ -1,10 +1,5 @@
 <div class="input-group">
   <h4>Miejsce podróży: </h4>
-  <input type="text" id="city" [(ngModel)]="city" />
+  <input type="text" id="city" [(ngModel)]="city" (blur)="updateCity()"/>
 </div>
 
-<div *ngIf="weatherData" class="weather-info">
-  <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
-  <p>Temperatura: {{ weatherData.main.temp }} °C</p>
-  <p>Opis: {{ weatherData.weather[0].description }}</p>
-</div>

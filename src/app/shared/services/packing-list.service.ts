@@ -1,194 +1,56 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PackingListService {
-  packingLists: { [activity: string]: string[] } = {
-    standard: [
-      'telefon',
-      'ładowarka',
-      'słuchawki',
-      'laptop',
-      'książka',
-      'bielizna',
-      'piżama',
-      'ręcznik',
-      'odzież',
-      'kurtka przeciwdeszczowa',
-      'czapka/kapelusz',
-      'buty',
-      'pieniądze',
-      'ubezpieczenie',
-      'dowód osobisty',
-      'paszport',
-      'prawo jazdy',
-      'nerka',
-      'szczoteczka i pasta do zębów',
-      'dezodorant',
-      'szampon',
-      'żel pod prysznic',
-      'chusteczki higieniczne',
-      'mokre chusteczki',
-      'apteczka',
-      'krem z filtrem',
-      'powerbank',
-      'okulary przeciwsłoneczne',
-      'worki na śmieci',
-      'bidon na wodę',
-      'suszarka',
-      'klapki pod prysznic',
-    ],
-    rowery: [
-      'rower',
-      'zapasowa dętka',
-      'zestaw naprawczy',
-      'pompka rowerowa',
-      'uchwyt na telefon',
-      'lampki rowerowe',
-      'licznik',
-      'odzież rowerowa',
-      'scyzoryk',
-      'sakwa',
-      'odblaski',
-    ],
-    autostop: [
-      'duży plecak',
-      'namiot',
-      'karimata',
-      'śpiwór',
-      'sztućce',
-      'scyzoryk',
-      'duży kubek',
-      'grzałka do wody',
-      'sznurek',
-      'taśma klejąca',
-      'czołówka',
-      'odblaski',
-      'karton i markery',
-      'jedzenie długoterminowe',
-    ],
-    fotografia: [
-      'aparat',
-      'karta pamięci',
-      'statyw',
-      'obiektywy',
-      'ładowarka do aparatu',
-      'pasek do aparatu',
-      'etui na aparat',
-    ],
-    plażowanie: [
-      'ręcznik plażowy',
-      'parasol plażowy',
-      'mata plażowa',
-      'torba termiczna na żywność',
-      'duża torba',
-      'strój kąpielowy',
-      'leżak',
-    ],
-    kemping: [
-      'namiot',
-      'karimata',
-      'śpiwór',
-      'taśma izolacyjna',
-      'lampa zewnętrzna',
-      'latarka',
-      'poduszka',
-      'naczynia kempingowe',
-      'sztućce',
-      'kubek',
-      'palnik gazowy',
-      'grzałka do wody',
-      'zapalniczka',
-      'scyzoryk',
-      'sznurek',
-    ],
-    trekking: [
-      'buty trekkingowe',
-      'skarpetki trekkingowe',
-      'duży plecak',
-      'kije trekkingowe',
-      'czołówka',
-      'rękawiczki',
-    ],
-    wspinaczka: [
-      'kask wspinaczkowy',
-      'uprząż wspinaczkowa',
-      'karabinek',
-      'przyrząd asekuracyjny',
-      'rękawiczki wspinaczkowe',
-      'liny',
-      'buty wspinaczkowe',
-      'magnezja',
-      'woreczek na magnezję',
-    ],
-    dziecko: [
-      'pampersy',
-      'mokre chusteczki',
-      'zabawki',
-      'ubranka dla dziecka',
-      'kocyk',
-      'mleko modyfikowane',
-      'butelka',
-      'podkłady higieniczne',
-      'smoczek',
-      'wózek dziecięcy',
-      'nosidełko',
-      'jedzenie dla dziecka',
-      'pielucha',
-    ],
-    auto: [
-      'ubezpieczenie samochodu',
-      'dowód rejestracyjny',
-      'kamizelka odblaskowa',
-      'trójkąt ostrzegawczy',
-      'gaśnica',
-      'komplet żarówek',
-      'koło zapasowe',
-      'podnośnik',
-      'lina holownicza',
-      'zestaw naprawczy',
-      'statyw na telefon',
-      'uchwyt na kubek',
-      'płyty z muzyką',
-      'poduszka',
-    ],
-    pociąg: [
-      'bilety na pociąg',
-      'poduszka podróżna',
-      'koc podróżny',
-      'zatyczki do uszu',
-      'lek na chorobę lokomocyjną',
-    ],
-    autokar: [
-      'bilety na autokar',
-      'lek na chorobę lokomocyjną',
-      'poduszka podróżna',
-      'koc podróżny',
-    ],
-    samolot: [
-      'bilety na samolot',
-      'wiza',
-      'lek na chorobę lokomocyjną',
-      'zatyczki do uszu',
-    ],
-    motocykl: [
-      'dowód rejestracyjny',
-      'ubezpieczenie motocykla',
-      'kask',
-      'kurtka motocyklowa',
-      'spodnie motocyklowe',
-      'rękawice motocyklowe',
-      'buty motocyklowe',
-      'zestaw naprawczy',
-      'olej do silnika',
-    ],
-  };
 
-  getPackingList(activity: string): string[] {
-    return this.packingLists[activity] || [];
+  private selectedCity: string;
+  private travelName: string;
+
+  constructor(private firestore: AngularFirestore) {}
+
+  getPackingList(activity: string): Observable<string[]> {
+    return this.firestore
+      .collection("packingLists")
+      .doc('cL3eUpsf8E6dzpMzt3ke') 
+      .valueChanges()
+      .pipe(
+        map((doc: any) => {
+          const activityList = doc[activity] || [];
+          return activityList as string[]; 
+        })
+      );
+  }
+
+  
+  // getPackingList(activity: string): string[] {
+  //   return this.packingLists[activity] || [];
+  // }
+
+  getCity(): string {
+    return this.selectedCity;
+  }
+
+  setCity(city: string): void {
+    this.selectedCity = city;
+  }
+
+  getName(): string {
+    return this.travelName;
+  }
+
+  setName(name: string): void {
+    this.travelName = name;
   }
 
 
 }
+
+
+
+
+
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PackingListService } from 'src/app/shared/services/packing-list.service';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
 
@@ -8,26 +9,14 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   styleUrls: ['./place.component.css']
 })
 export class PlaceComponent {
-  startDate: string;
-  endDate: string;
-  
+
   city: string = '';
-  weatherData: any;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(private packingListService: PackingListService) {}
 
-  getWeather() {
-    this.weatherService.getWeather(this.city).subscribe((data) => {
-      this.weatherData = data;
-      this.weatherData.main.temp = this.kelvinToCelsius(this.weatherData.main.temp).toFixed(2);
-    });
+  updateCity(){
+    this.packingListService.setCity(this.city);
   }
   
-  private kelvinToCelsius(kelvin: number): number {
-    return kelvin - 273.15;
-  }
-
-
-
 }
 

@@ -1,23 +1,59 @@
-<h4>Rzeczy do zabrania:</h4>
+<!-- <div class="travel-details">
+  <h2>Nazwa: {{name}}</h2>
 
-<div class="standard-section">
-  <h5>Standard</h5>
-  <div *ngFor="let item of standardPackingList">
-    <label>
-      <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
-    </label>
+  <div *ngIf="weatherData" class="weather-info">
+    <h2>Miejsce: {{ weatherData.name }}, {{ weatherData.sys.country }} {{ weatherData.main.temp }} °C</h2>
   </div>
-</div>
 
-<div *ngFor="let activity of activityPackingList">
-  <h5>{{ activity.activity }}</h5>
-  <div *ngFor="let item of activity.items">
-    <label>
-      <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
-    </label>
+  <h4>Rzeczy do zabrania:</h4>
+
+  <div class="standard-section">
+    <h5>Standard</h5>
+    <div *ngFor="let item of standardPackingList">
+      <label>
+        <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+      </label>
+    </div>
   </div>
+
+  <div *ngFor="let activity of activityPackingList">
+    <h5>{{ activity.activity }}</h5>
+    <div *ngFor="let item of activity.items">
+      <label>
+        <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+      </label>
+    </div>
+  </div>
+
+  <button>Dalej</button>
+</div> -->
+
+<div class="travel-details">
+  <h2>Nazwa: {{ name }}</h2>
+
+  <div *ngIf="weatherData" class="weather-info">
+    <h2>Miejsce: {{ weatherData.name }}, {{ weatherData.sys.country }} {{ weatherData.main.temp }} °C</h2>
+  </div>
+
+  <h4>Rzeczy do zabrania:</h4>
+
+  <div class="standard-section">
+    <h5>Standard</h5>
+    <div *ngFor="let item of standardPackingList | async">
+      <label>
+        <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+      </label>
+    </div>
+  </div>
+
+  <div *ngFor="let activity of activityPackingList">
+    <h5>{{ activity.activity }}</h5>
+    <div *ngFor="let item of activity.items | async">
+      <label>
+        <input type="checkbox" [(ngModel)]="item.isChecked" /> {{ item }}
+      </label>
+    </div>
+  </div>
+
+  <button>Dalej</button>
 </div>
-
-
-
-<button>Dalej</button>

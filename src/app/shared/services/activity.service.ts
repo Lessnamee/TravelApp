@@ -15,4 +15,5 @@ export class ActivityService {
   updateSelectedActivities(activities: string[]) {
     this.selectedActivitiesSubject.next(activities);
   }
+
 }
