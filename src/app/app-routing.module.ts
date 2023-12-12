@@ -21,7 +21,6 @@ import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.c
 import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
-import { SummaryComponent } from './Components/Plan/summary/summary.component';
 import { PeopleComponent } from './Components/Plan/people/people.component';
 import { HotelComponent } from './Components/Plan/hotel/hotel.component';
 import { VisitComponent } from './Components/Plan/visit/visit.component';
@@ -50,7 +49,6 @@ const routes: Routes = [
   { path: 'activity', component: ActivityComponent },
   { path: 'travel-details', component: TravelDetailsComponent},
   { path: 'people', component: PeopleComponent},
-  { path: 'summary', component: SummaryComponent},
   { path: 'hotel', component: HotelComponent},
   { path: 'visit', component: VisitComponent},
   { path: 'travel-wallet', component: TravelWalletComponent},

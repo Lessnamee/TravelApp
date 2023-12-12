@@ -1,5 +1,10 @@
 <h2 mat-dialog-title class="title">{{ data.travel.name }}</h2>
 <mat-dialog-content>
+  <div *ngIf="weatherData" class="weather-info">
+    <h2>Gdzie się wybierasz? {{ weatherData.sys.country }}, {{ weatherData.name }}</h2>
+    <h2>Aktualna pogoda w tym miejscu: {{ weatherData.main.temp }} °C</h2>
+  </div>
+
   <h5>Rzeczy do zabrania:</h5>
   <ul>
     <li *ngFor="let thing of visibleThings">
@@ -10,11 +15,30 @@
     </li>
   </ul>
 
-  <mat-form-field>
-    <input matInput placeholder="Nowa rzecz" [(ngModel)]="newThing">
-    <button mat-button (click)="addThing()">Dodaj</button>
-  </mat-form-field>
+  <div class="new-thing-container">
+    <mat-form-field>
+      <input matInput placeholder="Nowa rzecz" [(ngModel)]="newThing">
+    </mat-form-field>
+    
+    <button mat-button (click)="addThing()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+
+  <div class="visit-info">
+    <h2>Zwiedzanie: </h2>
+    <mat-form-field>
+      <input matInput placeholder="Nowe miejsce" [(ngModel)]="newVisit">
+    </mat-form-field>
+    
+    <button mat-button (click)="addVisit()">
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </div>
+
 </mat-dialog-content>
+
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Zamknij</button>
 </mat-dialog-actions>

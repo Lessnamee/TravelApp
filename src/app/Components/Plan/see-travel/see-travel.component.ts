@@ -43,6 +43,7 @@ export class SeeTravelComponent {
   }
 
   openDialog(travel: any) {
+    this.packingListService.setCity(travel.city)
     const dialogRef = this.dialog.open(DetailsComponent, { data: { travel } });
     this.packingListService.setTravelId(travel.travelId)
     console.log(travel.travelId);

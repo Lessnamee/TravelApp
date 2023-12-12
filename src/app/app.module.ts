@@ -57,7 +57,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
-import { SummaryComponent } from './Components/Plan/summary/summary.component';
 import { PeopleComponent } from './Components/Plan/people/people.component';
 import { HotelComponent } from './Components/Plan/hotel/hotel.component';
 import { VisitComponent } from './Components/Plan/visit/visit.component';
@@ -96,7 +95,6 @@ import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.c
     PlaceComponent,
     ActivityComponent,
     TravelDetailsComponent,
-    SummaryComponent,
     PeopleComponent,
     HotelComponent,
     VisitComponent,

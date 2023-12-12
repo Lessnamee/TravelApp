@@ -22,7 +22,7 @@
     <ng-template #travelsList>
         <div class="travels-list">
             <div *ngFor="let travel of travels" class="travel-item">
-                <div class="travel-details" (click)="openDialog(travel)">
+                <div class="travel-details" (click)="openDialog(travel)" >
                     <div class="travel-name">{{ travel.name }}</div>
                   
                 </div>
