@@ -1,0 +1,20 @@
+<h2 mat-dialog-title class="title">{{ data.travel.name }}</h2>
+<mat-dialog-content>
+  <h5>Rzeczy do zabrania:</h5>
+  <ul>
+    <li *ngFor="let thing of visibleThings">
+      {{ thing }}
+      <button mat-icon-button (click)="removeThing(thing)">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </li>
+  </ul>
+
+  <mat-form-field>
+    <input matInput placeholder="Nowa rzecz" [(ngModel)]="newThing">
+    <button mat-button (click)="addThing()">Dodaj</button>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Zamknij</button>
+</mat-dialog-actions>

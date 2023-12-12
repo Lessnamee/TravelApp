@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ActivityService } from 'src/app/shared/services/activity.service';
 import { PackingListService } from 'src/app/shared/services/packing-list.service';
 import { WeatherService } from 'src/app/shared/services/weather.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 @Component({
@@ -10,8 +12,7 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css']
 })
-export class SummaryComponent implements OnInit{
-
+export class SummaryComponent implements OnInit {
   city = this.packingListService.getCity();
   name = this.packingListService.getName();
   weatherData: any;
@@ -22,10 +23,10 @@ export class SummaryComponent implements OnInit{
     private packingListService: PackingListService,
     private weatherService: WeatherService,
     private activityService: ActivityService,
+    public dialog: MatDialog,
+    private firestore: AngularFirestore,
     private router: Router
   ) { }
-
-
 
   ngOnInit(): void {
     this.getWeather()
@@ -45,24 +46,56 @@ export class SummaryComponent implements OnInit{
     return kelvin - 273.15;
   }
 
-  addWallet() {
-    this.router.navigate(['/finances']); 
-  }
-
-  addMemories() {
-    this.router.navigate(['/memory-see']);
-  }
-
   addThing() {
     if (this.newThing.trim() !== '') {
       this.selectedThings.push(this.newThing);
-      this.newThing = ''; 
+  
+      const travelID = this.packingListService.getTravelId();
+  
+      const selectedThings = this.selectedThings.slice();
+  
+      this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+        .get()
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.update({ selectedThings }).then(() => {
+              console.log('Zaktualizowano dokument w Firebase po dodaniu rzeczy.');
+            }).catch(error => {
+              console.error('Błąd podczas aktualizowania dokumentu: ', error);
+            });
+          });
+        });
+  
+      this.newThing = '';
     }
   }
+  
+
 
   removeThing(index: number) {
     this.selectedThings.splice(index, 1);
-  }
+
+    const travelID = this.packingListService.getTravelId();
+
+    const selectedThings = this.selectedThings.slice(); 
+
+    this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+    .get()
+    .subscribe(querySnapshot => {
+      querySnapshot.forEach(doc => {
+
+        doc.ref.update({ selectedThings }).then(() => {
+          console.log('Zaktualizowano dokument w Firebase po usunięciu rzeczy.');
+        }).catch(error => {
+          console.error('Błąd podczas aktualizowania dokumentu: ', error);
+        });
+
+      });
+    });
+} 
+
 
 
 }
+
+

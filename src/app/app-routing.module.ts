@@ -22,6 +22,11 @@ import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.comp
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
 import { SummaryComponent } from './Components/Plan/summary/summary.component';
+import { PeopleComponent } from './Components/Plan/people/people.component';
+import { HotelComponent } from './Components/Plan/hotel/hotel.component';
+import { VisitComponent } from './Components/Plan/visit/visit.component';
+import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
+import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -44,7 +49,12 @@ const routes: Routes = [
   { path: 'place', component: PlanningComponent },
   { path: 'activity', component: ActivityComponent },
   { path: 'travel-details', component: TravelDetailsComponent},
+  { path: 'people', component: PeopleComponent},
   { path: 'summary', component: SummaryComponent},
+  { path: 'hotel', component: HotelComponent},
+  { path: 'visit', component: VisitComponent},
+  { path: 'travel-wallet', component: TravelWalletComponent},
+  { path: 'see-travel', component: SeeTravelComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

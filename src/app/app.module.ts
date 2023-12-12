@@ -58,6 +58,14 @@ import { MatCardModule } from '@angular/material/card';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
 import { SummaryComponent } from './Components/Plan/summary/summary.component';
+import { PeopleComponent } from './Components/Plan/people/people.component';
+import { HotelComponent } from './Components/Plan/hotel/hotel.component';
+import { VisitComponent } from './Components/Plan/visit/visit.component';
+import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
+import { TravelMemoryComponent } from './Components/Plan/travel-memory/travel-memory.component';
+import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
+import { DetailsComponent } from './Components/Plan/details/details.component';
+import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.component';
 
 
 @NgModule({
@@ -88,7 +96,15 @@ import { SummaryComponent } from './Components/Plan/summary/summary.component';
     PlaceComponent,
     ActivityComponent,
     TravelDetailsComponent,
-    SummaryComponent
+    SummaryComponent,
+    PeopleComponent,
+    HotelComponent,
+    VisitComponent,
+    TravelWalletComponent,
+    TravelMemoryComponent,
+    SeeTravelComponent,
+    DetailsComponent,
+    EditTravelComponent
   ],
   imports: [
     BrowserModule,

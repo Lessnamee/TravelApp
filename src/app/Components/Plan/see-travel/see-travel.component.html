@@ -1,0 +1,38 @@
+<div class="travels-list">
+    <div class="data-header">
+        <button class="add-travel-btn" mat-raised-button extended routerLink="/new-travel">           
+            Dodaj podróż 
+            <mat-icon>add</mat-icon> 
+        </button>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="travels">
+        <div class="travels-title">
+            <h2>Twoje podróże</h2>
+        </div>
+        <mat-divider></mat-divider>
+        <br>
+    
+        <ul *ngIf="travelsEmpty; else travelsList">
+            <li>Brak podróży.</li>
+        </ul>
+    </div>
+    
+    <ng-template #travelsList>
+        <div class="travels-list">
+            <div *ngFor="let travel of travels" class="travel-item">
+                <div class="travel-details" (click)="openDialog(travel)">
+                    <div class="travel-name">{{ travel.name }}</div>
+                  
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+
+
+ 
+

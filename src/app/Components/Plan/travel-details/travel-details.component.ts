@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { ActivityService } from 'src/app/shared/services/activity.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { PackingListService } from 'src/app/shared/services/packing-list.service';
 import { WeatherService } from 'src/app/shared/services/weather.service';
 
@@ -26,11 +28,12 @@ export class TravelDetailsComponent implements OnInit {
   standardPackingList: Observable<PackingListItem[]>;
 
   weatherData: any;
+  newThing: string = '';
+  selectedThings: string[] = [];
 
   city = this.packingListService.getCity();
   name = this.packingListService.getName();
 
-  private selectedThings: string[] = [];
 
   travelDetails = {
     isChecked: false,
@@ -41,12 +44,18 @@ export class TravelDetailsComponent implements OnInit {
     private packingListService: PackingListService,
     private activityService: ActivityService,
     private weatherService: WeatherService,
-    private router: Router
+    private router: Router,
+    private firestore: AngularFirestore,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.updatePackingList();
     this.getWeather();
+
+    this.activityService.selectedThings$.subscribe((selectedThings) => {
+      this.selectedThings = selectedThings;
+    });
   }
 
   updatePackingList() {
@@ -101,8 +110,79 @@ export class TravelDetailsComponent implements OnInit {
   }
 
   onNextClick() {
-    console.log(this.selectedThings);
     this.activityService.updateSelectedThings(this.selectedThings);
-    this.router.navigate(['/summary']);
+
+    const travelCollection = this.firestore.collection('travel');
+
+      if (this.selectedThings.length > 0) {
+        const travelData = {
+          travelId: this.firestore.createId(),
+          userId: this.authService.getLoggedInUser().uid,
+          userEmail: this.authService.getLoggedInUser().email,
+          selectedThings: this.selectedThings,
+          name: this.name,
+          city: this.city
+        };
+
+        travelCollection.add(travelData).then(docRef => {
+          console.log('Dodano nowy dokument z ID: ', docRef.id);
+          this.packingListService.setTravelId(travelData.travelId)
+        }).catch(error => {
+          console.error('Błąd podczas dodawania dokumentu: ', error);
+        });
+      } else {
+        console.warn('Dodaj przynajmniej jedną rzecz przed zapisaniem do Firebase.');
+      }
+
+      this.router.navigate(['/see-travel']);
+  }
+
+  
+  addThing() {
+    if (this.newThing.trim() !== '') {
+      this.selectedThings.push(this.newThing);
+  
+      const travelID = this.packingListService.getTravelId();
+  
+      const selectedThings = this.selectedThings.slice();
+  
+      this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+        .get()
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.update({ selectedThings }).then(() => {
+              console.log('Zaktualizowano dokument w Firebase po dodaniu rzeczy.');
+            }).catch(error => {
+              console.error('Błąd podczas aktualizowania dokumentu: ', error);
+            });
+          });
+        });
+  
+      this.newThing = '';
+    }
+  }
+  
+
+
+  removeThing(index: number) {
+    this.selectedThings.splice(index, 1);
+
+    const travelID = this.packingListService.getTravelId();
+
+    const selectedThings = this.selectedThings.slice(); 
+
+    this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+    .get()
+    .subscribe(querySnapshot => {
+      querySnapshot.forEach(doc => {
+
+        doc.ref.update({ selectedThings }).then(() => {
+          console.log('Zaktualizowano dokument w Firebase po usunięciu rzeczy.');
+        }).catch(error => {
+          console.error('Błąd podczas aktualizowania dokumentu: ', error);
+        });
+
+      });
+    });
   }
 }

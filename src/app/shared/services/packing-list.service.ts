@@ -9,6 +9,7 @@ export class PackingListService {
 
   private selectedCity: string;
   private travelName: string;
+  private travelId: string;
 
   constructor(private firestore: AngularFirestore) {}
 
@@ -41,6 +42,14 @@ export class PackingListService {
 
   setName(name: string): void {
     this.travelName = name;
+  }
+
+  getTravelId(): string {
+    return this.travelId;
+  }
+
+  setTravelId(id: string): void {
+    this.travelId = id;
   }
 
 

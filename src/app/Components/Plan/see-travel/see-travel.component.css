@@ -1,0 +1,45 @@
+.mat-divider{
+    background-color: var(--secondary-color);
+}
+
+.data-header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-inline: var(--default-space);
+    padding-block: var(--default-space);
+}
+
+.travels-title {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: var(--default-space);
+}
+
+.travels-list {
+    margin-inline: var(--default-space);
+}
+
+.travel-item {
+    padding-block: 5px;
+}
+
+.add-travel-btn {
+    border-radius: 10px;
+    margin: 0px;
+    height: var(--common-height);
+}
+
+@media screen and (max-width: 400px) {
+    .travels-title  {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: var(--default-space);
+    }
+
+    .data-header {
+        justify-content: center;
+    }
+  }
