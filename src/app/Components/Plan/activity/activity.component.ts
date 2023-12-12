@@ -13,13 +13,13 @@ export class ActivityComponent {
   toppings = this.formBuilder.group({
     autostop: false,
     fotografia: false,
-    plaża: false,
+    plażowanie: false,
     rowery: false,
     kemping: false,
     trekking: false,
     wspinaczka: false,
     dziecko: false,
-    auto: false,
+    samochód: false,
     pociąg: false,
     autokar: false,
     samolot: false,
@@ -38,8 +38,7 @@ export class ActivityComponent {
     const selectedActivities = Object.keys(this.toppings.controls)
       .filter((control) => this.toppings.controls[control].value);
 
-    const currentSelectedActivities = this.activityService.selectedActivitiesValue;
-    const updatedSelectedActivities = [...currentSelectedActivities, ...selectedActivities];
+    const updatedSelectedActivities = [...selectedActivities];
     this.activityService.updateSelectedActivities(updatedSelectedActivities);
 
     this.router.navigate(['/travel-details']);

@@ -57,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
+import { SummaryComponent } from './Components/Plan/summary/summary.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-
     NewTravelComponent,
     PlaceComponent,
     ActivityComponent,
-    TravelDetailsComponent
+    TravelDetailsComponent,
+    SummaryComponent
   ],
   imports: [
     BrowserModule,

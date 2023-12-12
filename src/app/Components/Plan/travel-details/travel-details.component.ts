@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ActivityService } from 'src/app/shared/services/activity.service';
 import { PackingListService } from 'src/app/shared/services/packing-list.service';
@@ -10,6 +11,7 @@ import { WeatherService } from 'src/app/shared/services/weather.service';
   templateUrl: './travel-details.component.html',
   styleUrls: ['./travel-details.component.css'],
 })
+
 export class TravelDetailsComponent implements OnInit {
   activityPackingList: { activity: string, items: Observable<string[]> }[] = [];
   standardPackingList: Observable<string[]>;
@@ -18,45 +20,30 @@ export class TravelDetailsComponent implements OnInit {
   city = this.packingListService.getCity();
   name = this.packingListService.getName();
 
+  @Output() selectedItems = new EventEmitter<any>();
+
 
   constructor(
     private packingListService: PackingListService,
     private activityService: ActivityService,
-    private weatherService: WeatherService
-  ) {}
+    private weatherService: WeatherService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.updatePackingList();
 
-    this.activityService.selectedActivities$.subscribe(() => {
-      this.updatePackingList();
-    });
-    
     this.getWeather()
   }
 
 
-  // updatePackingList() {
-  //   this.activityPackingList = [];
-
-  //   this.standardPackingList = this.packingListService.getPackingList('standard');
-    
-  //   const selectedActivities = this.activityService.selectedActivitiesValue;
-  //   selectedActivities.forEach((activity) => {
-  //     if (activity !== 'standard') {
-  //       const packingListForActivity = this.packingListService.getPackingList(activity);
-  //       this.activityPackingList.push({ activity, items: packingListForActivity });
-  //     }
-  //   });
-  // }
-
-
   updatePackingList() {
-    this.activityPackingList = [];
-  
+
     this.standardPackingList = this.packingListService.getPackingList('standard');
-  
+
     const selectedActivities = this.activityService.selectedActivitiesValue;
+    this.activityPackingList = [];
+
     selectedActivities.forEach((activity) => {
       if (activity !== 'standard') {
         const packingListForActivity = this.packingListService.getPackingList(activity);
@@ -64,9 +51,7 @@ export class TravelDetailsComponent implements OnInit {
       }
     });
   }
-  
-  
-  
+
   getWeather() {
     this.weatherService.getWeather(this.city).subscribe((data) => {
       this.weatherData = data;
@@ -77,6 +62,7 @@ export class TravelDetailsComponent implements OnInit {
   private kelvinToCelsius(kelvin: number): number {
     return kelvin - 273.15;
   }
+
 
 }
 

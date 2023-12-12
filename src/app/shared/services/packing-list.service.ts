@@ -25,10 +25,6 @@ export class PackingListService {
       );
   }
 
-  
-  // getPackingList(activity: string): string[] {
-  //   return this.packingLists[activity] || [];
-  // }
 
   getCity(): string {
     return this.selectedCity;

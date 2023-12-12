@@ -21,6 +21,7 @@ import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.c
 import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
+import { SummaryComponent } from './Components/Plan/summary/summary.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: 'place', component: PlanningComponent },
   { path: 'activity', component: ActivityComponent },
   { path: 'travel-details', component: TravelDetailsComponent},
+  { path: 'summary', component: SummaryComponent},
   { path: '**', component: NotFoundComponent },
 ];
 
