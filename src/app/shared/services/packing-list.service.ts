@@ -26,6 +26,7 @@ export class PackingListService {
   }
 
 
+
   getCity(): string {
     return this.selectedCity;
   }
@@ -44,9 +45,6 @@ export class PackingListService {
 
 
 }
-
-
-
 
 
 

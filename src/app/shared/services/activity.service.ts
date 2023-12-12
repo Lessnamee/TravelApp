@@ -16,6 +16,13 @@ export class ActivityService {
     this.selectedActivitiesSubject.next(activities);
   }
 
+  private selectedThingsSubject = new BehaviorSubject<string[]>([]);
+  selectedThings$ = this.selectedThingsSubject.asObservable();
+
+  updateSelectedThings(selectedThings: string[]): void {
+    this.selectedThingsSubject.next(selectedThings);
+  }
+
 }
 
 

@@ -1,0 +1,38 @@
+<div class="summary">
+  <h2>Nazwa: {{ name }}</h2>
+
+  <div *ngIf="weatherData" class="weather-info">
+    <h2>Miejsce: {{ weatherData.name }}, {{ weatherData.sys.country }} {{ weatherData.main.temp }} °C</h2>
+  </div>
+
+  <h2>Rzeczy do zabrania: </h2>
+  <div class="summary">
+    <ul>
+      <li *ngFor="let thing of selectedThings; let i = index">
+        {{ thing }}
+        <button (click)="removeThing(i)">Usuń</button>
+      </li>
+    </ul>
+    <div>
+      <input type="text" [(ngModel)]="newThing" placeholder="Nowa rzecz do zabrania">
+      <button (click)="addThing()">Dodaj rzecz</button>
+    </div>
+  </div>
+  
+
+  <h2>Dodaj portfel: </h2>
+  <button (click)="addWallet()">Dostępne portfele</button>
+
+  <h2>Dodaj wspomnienia: </h2>
+  <button (click)="addMemories()">Dostępne wspomnienia</button>
+
+  <h2>Dodaj członków: </h2>
+  <!-- <button (click)="addPeople()">Ludzie</button> -->
+
+  <h2>Dodaj miejsca do odwiedzenia </h2>
+  <!-- <button (click)="addPlace()">Miejsca</button> -->
+
+  <h2>Dodaj noclegi: </h2>
+  <!-- <button (click)="addAccommodation()">Noclegi</button> -->
+
+</div>
