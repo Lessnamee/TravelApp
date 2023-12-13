@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'see-wallet',
@@ -15,7 +16,11 @@ export class SeeWalletComponent {
   currentUserEmail: string;
   numberOfPeople: number;
 
-  constructor(private walletService: WalletService, private authService: AuthService) {
+  constructor(
+    private walletService: WalletService,
+    private authService: AuthService,
+      ) {
+
     const selectedWallet = this.walletService.getSelectedWallet();
 
     if (selectedWallet) {
@@ -27,6 +32,8 @@ export class SeeWalletComponent {
       this.numberOfPeople = selectedWallet.people.length;
     }
   }
+
+
 
   calculateRepayment(index: number): number {
     const totalCost = parseFloat(this.costs[index]);
@@ -44,7 +51,7 @@ export class SeeWalletComponent {
     if (this.whoPaid[index] !== this.currentUserEmail) {
       return totalCost / this.numberOfPeople;
     } else {
-      return 0; // Osoba, która płaciła, nie jest winna nic zalogowanemu użytkownikowi
+      return 0;
     }
   }
 }

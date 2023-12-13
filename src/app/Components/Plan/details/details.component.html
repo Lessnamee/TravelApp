@@ -11,16 +11,17 @@
       {{ member }}
     </li>
   </ul>
-  
+
   <mat-form-field>
     <mat-label>Users</mat-label>
     <mat-select [formControl]="user" multiple>
-      <mat-option *ngFor="let user of userList" [value]="user" (click)="addMember(user.email)">{{ user.email }}</mat-option>
+      <mat-option *ngFor="let user of userList" [value]="user" (click)="addMember(user.email)">{{ user.email
+        }}</mat-option>
     </mat-select>
   </mat-form-field>
-  
+
   <button (click)="chooseUsers()">Dodaj</button>
-  
+
 
   <h5>Rzeczy do zabrania:</h5>
   <ul>
@@ -36,7 +37,7 @@
     <mat-form-field>
       <input matInput placeholder="Nowa rzecz" [(ngModel)]="newThing">
     </mat-form-field>
-    
+
     <button mat-button (click)="addThing()">
       <mat-icon>add</mat-icon>
     </button>
@@ -60,7 +61,7 @@
     <mat-form-field>
       <input matInput placeholder="Link do atrakcji" [(ngModel)]="newVisitLink">
     </mat-form-field>
-    
+
     <button mat-button (click)="addVisit()">
       <mat-icon>add</mat-icon>
     </button>
@@ -75,23 +76,48 @@
       </button>
     </li>
   </ul>
-  
+
   <div class="new-hotel-container">
     <mat-form-field>
       <input matInput placeholder="Nowy nocleg" [(ngModel)]="newHotel">
     </mat-form-field>
-  
+
     <mat-form-field>
       <input matInput placeholder="Link do noclegu" [(ngModel)]="newHotelLink">
     </mat-form-field>
-    
+
     <button mat-button (click)="addHotel()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
+
+
+  <h5>Wydatki:</h5>
+
+  <mat-form-field>
+      <mat-label>Wallets</mat-label>
+      <mat-select [formControl]="wallet">
+          <mat-select-trigger>
+              {{ wallet.value || '' }}
+          </mat-select-trigger>
+          <mat-option *ngFor="let wallet of walletList" [value]="wallet.name">{{ wallet.name }}</mat-option>
+
+      </mat-select>
+  </mat-form-field>
+  <mat-dialog-actions>
+    <button mat-button (click)="addWallet()">Dodaj do podróży</button>
+</mat-dialog-actions>
+
+<h5>Wspomnienia: </h5>
+<button mat-raised-button (click)="openDialog()">Dodaj wspomnienie</button>
+
+
+
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Zamknij</button>
 </mat-dialog-actions>
+
+

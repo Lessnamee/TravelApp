@@ -1,1 +1,26 @@
-<p>travel-memory works!</p>
+<div class="memories-list">
+  <mat-divider></mat-divider>
+
+  <div class="memories">
+      <div class="memories-title">
+          <h2>Twoje wspomnienia</h2>
+      </div>
+      <mat-divider></mat-divider>
+      <br>
+  
+      <ul *ngIf="memoriesEmpty; else memoriesList">
+          <li>Brak wspomnień dla tej daty.</li>
+      </ul>
+  </div>
+  
+  <ng-template #memoriesList>
+      <div class="memories-list">
+        <div *ngFor="let memory of memories" class="memory-item">
+          <app-memory [name]="memory.name" (click)="openDialog(memory)"></app-memory>
+          <button (click)="saveToTravel(memory)">+</button>
+      </div>
+      
+      </div>
+      
+  </ng-template>
+</div>

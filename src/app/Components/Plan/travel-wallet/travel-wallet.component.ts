@@ -51,18 +51,9 @@ export class TravelWalletComponent {
     });
   }
 
-  chooseWallet() {
-    if (this.selectedWallet) {
-      console.log('Pełne informacje o wybranym portfelu:', this.selectedWallet);
-      this.walletService.setSelectedWallet(this.selectedWallet);
-      this.router.navigate(['/see-wallet']);
-    } else {
-      console.log('Nie wybrano portfela.');
-    }
-  }
 
   addWallet(){
-    
+    this.walletService.setSelectedWallet(this.selectedWallet);
   }
 
 }
