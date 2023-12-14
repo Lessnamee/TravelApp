@@ -26,6 +26,7 @@ import { HotelComponent } from './Components/Plan/hotel/hotel.component';
 import { VisitComponent } from './Components/Plan/visit/visit.component';
 import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
 import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
+import { SeeTravelWalletComponent } from './see-travel-wallet/see-travel-wallet.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: 'visit', component: VisitComponent},
   { path: 'travel-wallet', component: TravelWalletComponent},
   { path: 'see-travel', component: SeeTravelComponent},
+  { path: 'see-travel-wallet', component: SeeTravelWalletComponent},
   { path: '**', component: NotFoundComponent },
 ];
 

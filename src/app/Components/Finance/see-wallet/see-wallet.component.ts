@@ -9,12 +9,14 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./see-wallet.component.css']
 })
 export class SeeWalletComponent {
+
   walletName: string;
   costs: Array<string>;
   descriptions: Array<string>;
   whoPaid: Array<string>;
   currentUserEmail: string;
   numberOfPeople: number;
+  
 
   constructor(
     private walletService: WalletService,

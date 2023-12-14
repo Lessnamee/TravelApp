@@ -93,6 +93,7 @@
 
 
   <h5>Wydatki:</h5>
+  <see-travel-wallet [travelID]="travelID"></see-travel-wallet>
 
   <mat-form-field>
       <mat-label>Wallets</mat-label>
@@ -105,7 +106,7 @@
       </mat-select>
   </mat-form-field>
   <mat-dialog-actions>
-    <button mat-button (click)="addWallet()">Dodaj do podróży</button>
+    <button mat-button (click)="addWallet()">Dodaj lub zamień</button>
 </mat-dialog-actions>
 
 <h5>Wspomnienia: </h5>
@@ -118,8 +119,6 @@
     <p>Data dodania: {{ memory.date.toDate() | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
   </div>
 </div>
-
-
 
 
 

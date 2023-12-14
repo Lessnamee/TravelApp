@@ -65,6 +65,7 @@ import { TravelMemoryComponent } from './Components/Plan/travel-memory/travel-me
 import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
 import { DetailsComponent } from './Components/Plan/details/details.component';
 import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.component';
+import { SeeTravelWalletComponent } from './see-travel-wallet/see-travel-wallet.component';
 
 
 @NgModule({
@@ -102,7 +103,8 @@ import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.c
     TravelMemoryComponent,
     SeeTravelComponent,
     DetailsComponent,
-    EditTravelComponent
+    EditTravelComponent,
+    SeeTravelWalletComponent
   ],
   imports: [
     BrowserModule,

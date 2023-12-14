@@ -47,6 +47,8 @@ export class DetailsComponent {
 
   travelMemories: any[] = [];
 
+  travelID;
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -60,6 +62,7 @@ export class DetailsComponent {
 
 
 
+
   openDialog(): void {
     const dialogRef = this.dialog.open(TravelMemoryComponent, {
       width: '250px',
@@ -68,7 +71,6 @@ export class DetailsComponent {
   
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // Możesz obsłużyć tutaj wynik zamykania dialogu, jeśli to konieczne
       }
     });
   }
@@ -76,10 +78,13 @@ export class DetailsComponent {
 
 
   ngOnInit(): void {
+    this.travelID = this.packingListService.getTravelId();
+
+
+    console.log(this.travelID);
     this.getWeather();
 
     this.loadTravelMemories();
-
 
     this.firestore.collection('users').valueChanges().subscribe((users: any) => {
       this.userList = users.map((user: any) => ({ userId: user.userId, email: user.email }));
@@ -130,13 +135,13 @@ export class DetailsComponent {
       this.selectedWallet = this.walletList.find(wallet => wallet.name === selectedWallet);
 
     });
+    
 
   }
 
   loadTravelMemories(): void {
     const travelID = this.packingListService.getTravelId();
     
-    // Przyjmuj, że data.travel.memory jest tablicą, gdyż tego oczekujesz
     this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
       .get()
       .subscribe(querySnapshot => {
@@ -321,8 +326,8 @@ export class DetailsComponent {
 
 
   addWallet() {
-
     this.walletService.setSelectedWallet(this.selectedWallet);    
+
     this.walletID = this.walletService.getSelectedWallet().walletId;
     const travelID = this.packingListService.getTravelId();
   
@@ -345,31 +350,7 @@ export class DetailsComponent {
         console.error('Błąd podczas pobierania dokumentu: ', error);
       });
   }
-  
 
-
-  // calculateRepayment(index: number): number {
-  //   const totalCost = parseFloat(this.costs[index]);
-
-  //   if (this.whoPaid[index] === this.currentUserEmail) {
-  //     return totalCost * ((this.numberOfPeople - 1) / this.numberOfPeople);
-  //   } else {
-  //     return totalCost / this.numberOfPeople;
-  //   }
-  // }
-
-  // calculateDebt(index: number): number {
-  //   const totalCost = parseFloat(this.costs[index]);
-
-  //   if (this.whoPaid[index] !== this.currentUserEmail) {
-  //     return totalCost / this.numberOfPeople;
-  //   } else {
-  //     return 0; 
-  //   }
-  // }
-  
-
- 
   getWeather() {
     this.weatherService.getWeather(this.city).subscribe((data) => {
       this.weatherData = data;

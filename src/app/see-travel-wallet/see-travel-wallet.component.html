@@ -1,0 +1,13 @@
+<h1>Nazwa portfela: {{ walletName }}</h1>
+
+<div *ngFor="let cost of costs; let i = index" class="panel">
+  <h2>{{ descriptions[i] }}</h2>
+  <p>Kwota: {{ cost }}</p>
+  <p>Kto płacił: {{ whoPaid[i] }}</p>
+  <p *ngIf="whoPaid[i] === currentUserEmail">
+    Dla mnie: {{ calculateRepayment(i) | currency:'PLN':'symbol':'1.2-2' }}
+  </p>
+  <p *ngIf="whoPaid[i] !== currentUserEmail">
+    Jesteś winien: {{ calculateDebt(i) | currency:'PLN':'symbol':'1.2-2' }}
+  </p>
+</div>
