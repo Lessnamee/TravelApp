@@ -45,6 +45,8 @@ export class DetailsComponent {
   walletList: any[] = []; 
   selectedWallet; 
 
+  travelMemories: any[] = [];
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -61,6 +63,7 @@ export class DetailsComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(TravelMemoryComponent, {
       width: '250px',
+      data: this.data  
     });
   
     dialogRef.afterClosed().subscribe(result => {
@@ -74,6 +77,9 @@ export class DetailsComponent {
 
   ngOnInit(): void {
     this.getWeather();
+
+    this.loadTravelMemories();
+
 
     this.firestore.collection('users').valueChanges().subscribe((users: any) => {
       this.userList = users.map((user: any) => ({ userId: user.userId, email: user.email }));
@@ -127,6 +133,21 @@ export class DetailsComponent {
 
   }
 
+  loadTravelMemories(): void {
+    const travelID = this.packingListService.getTravelId();
+    
+    // Przyjmuj, że data.travel.memory jest tablicą, gdyż tego oczekujesz
+    this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+      .get()
+      .subscribe(querySnapshot => {
+        if (!querySnapshot.empty) {
+          this.travelMemories = this.data.travel.memory;
+        } else {
+          console.error('Błąd: Brak danych o podróży o ID: ' + travelID);
+        }
+      });
+  }
+  
 
   chooseUsers() {
 
@@ -324,11 +345,6 @@ export class DetailsComponent {
         console.error('Błąd podczas pobierania dokumentu: ', error);
       });
   }
-
-
-  
-  
-  
   
 
 

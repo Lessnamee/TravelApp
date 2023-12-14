@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MemoryDetailComponent } from '../../Memories/memory-detail/memory-detail.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { PackingListService } from 'src/app/shared/services/packing-list.service';
 
@@ -17,6 +16,8 @@ export class TravelMemoryComponent {
   memories: any[] = [];
   allMemories: any[] = [];
   memoriesEmpty: boolean = false;
+  newMemory: string = ''; 
+
 
   travelId = this.packingListService.getTravelId();
 
@@ -24,31 +25,47 @@ export class TravelMemoryComponent {
     private afs: AngularFirestore,
     public dialog: MatDialog,
     private authService: AuthService,
-    private packingListService: PackingListService  ) {
+    private packingListService: PackingListService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    ) {
   }
 
   ngOnInit() {
     this.loadAllMemories()
   }
 
-
+  
   saveToTravel(memory): void {
-    console.log(memory);
-    console.log(this.travelId);
-      this.afs.collection('travel', ref => ref.where('travelId', '==',  this.travelId))
+    console.log('Próba dodania wspomnienia:', memory);
+  
+    if (memory && typeof memory === 'object') {
+      const travelID = this.packingListService.getTravelId();
+  
+      if (!this.data.travel.memory) {
+        this.data.travel.memory = [];
+      }
+    
+      const updatedMemory = [...this.data.travel.memory, memory];
+    
+      console.log('Aktualizowana tablica memory:', updatedMemory);
+  
+      this.afs.collection('travel', ref => ref.where('travelId', '==', travelID))
         .get()
         .subscribe(querySnapshot => {
           querySnapshot.forEach(doc => {
-            doc.ref.update({ memory: memory }).then(() => {
-              console.log('Zaktualizowano dokument w Firebase po dodaniu rzeczy.'); 
+            doc.ref.update({ memory: updatedMemory }).then(() => {
+              console.log('Zaktualizowano dokument w Firebase po dodaniu wspomnienia.');
+              this.data.travel.memory = updatedMemory;
             }).catch(error => {
               console.error('Błąd podczas aktualizowania dokumentu: ', error);
             });
           });
         });
-    
+    } else {
+      console.error('Błąd: Nieprawidłowa wartość wspomnienia.', memory);
+    }
   }
-
+  
 
 
   loadAllMemories() {

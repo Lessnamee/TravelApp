@@ -111,6 +111,15 @@
 <h5>Wspomnienia: </h5>
 <button mat-raised-button (click)="openDialog()">Dodaj wspomnienie</button>
 
+<div *ngIf="data.travel.memory">
+  <div *ngFor="let memory of data.travel.memory">
+    <h6>Nazwa: {{ memory.name }}</h6>
+    <p>Opis: {{ memory.description }}</p>
+    <p>Data dodania: {{ memory.date.toDate() | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+  </div>
+</div>
+
+
 
 
 
