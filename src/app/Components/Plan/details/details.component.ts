@@ -45,8 +45,6 @@ export class DetailsComponent {
   walletList: any[] = []; 
   selectedWallet; 
 
-  travelMemories: any[] = [];
-
   travelID;
 
 
@@ -80,11 +78,9 @@ export class DetailsComponent {
   ngOnInit(): void {
     this.travelID = this.packingListService.getTravelId();
 
-
-    console.log(this.travelID);
     this.getWeather();
 
-    this.loadTravelMemories();
+    this.loadTravelMembers();
 
     this.firestore.collection('users').valueChanges().subscribe((users: any) => {
       this.userList = users.map((user: any) => ({ userId: user.userId, email: user.email }));
@@ -139,20 +135,17 @@ export class DetailsComponent {
 
   }
 
-  loadTravelMemories(): void {
-    const travelID = this.packingListService.getTravelId();
-    
-    this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
-      .get()
-      .subscribe(querySnapshot => {
-        if (!querySnapshot.empty) {
-          this.travelMemories = this.data.travel.memory;
-        } else {
-          console.error('Błąd: Brak danych o podróży o ID: ' + travelID);
+  loadTravelMembers() {
+    this.firestore.collection('travel', ref => ref.where('travelId', '==', this.travelID))
+      .valueChanges()
+      .subscribe((travelData: any) => {
+        if (travelData.length > 0) {
+          this.tripMembers = travelData[0].people || [];
         }
       });
   }
-  
+
+
 
   chooseUsers() {
 
@@ -168,6 +161,7 @@ export class DetailsComponent {
           querySnapshot.forEach(doc => {
             doc.ref.update({ people: peopleData.people }).then(() => {
               console.log('Zaktualizowano dane w Firestore');
+              this.loadTravelMembers();
             }).catch(error => {
               console.error('Błąd podczas aktualizacji danych w Firestore:', error);
             });
@@ -175,11 +169,11 @@ export class DetailsComponent {
         });
   }
 
-  addMember(email: string) {
-    if (!this.tripMembers.includes(email)) {
-      this.tripMembers.push(email);
-    }
-  }
+  // addMember(email: string) {
+  //   if (!this.tripMembers.includes(email)) {
+  //     this.tripMembers.push(email);
+  //   }
+  // }
   
   
   removeMember(email: string) {
