@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { User } from 'src/app/shared/services/user';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 
@@ -22,6 +22,7 @@ export class PriceComponent {
 
   ngOnInit() {
     this.walletInfo = this.walletService.getSelectedWallet().people;
+    console.log(this.walletInfo);
     this.ownersList = this.walletInfo.map((people: any) => ({ userId: people.userId, email: people.email }));
   }
 

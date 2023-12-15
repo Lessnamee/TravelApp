@@ -31,9 +31,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { HomeComponent } from './Components/Navi/home/home.component';
 import { HeaderComponent } from './Components/Navi/header/header.component';
-import { PlanningComponent } from './Components/Plan/planning/planning.component';
 import { StartComponent } from './Components/Navi/start/start.component';
-import { FinancesComponent } from './Components/Finance/finances/finances.component';
 import { RegisterComponent } from './Components/Auth/register/register.component';
 import { environment } from '../environments/environment';
 import { NotFoundComponent } from './Components/Other/not-found/not-found.component';
@@ -47,23 +45,19 @@ import { MemoryDetailComponent } from './Components/Memories/memory-detail/memor
 import { WalletComponent } from './Components/Finance/wallet/wallet.component';
 import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.component';
 import { AddPeopleComponent } from './Components/Finance/add-people/add-people.component';
-import { WalletListComponent } from './Components/Finance/wallet-list/wallet-list.component';
 import { PriceComponent } from './Components/Finance/price/price.component';
 import { SeeWalletComponent } from './Components/Finance/see-wallet/see-wallet.component';
-import { SeeWalletListComponent } from './Components/Finance/see-wallet-list/see-wallet-list.component';
 import { NewTravelComponent } from './Components/Plan/new-travel/new-travel.component';
 import { PlaceComponent } from './Components/Plan/place/place.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { ActivityComponent } from './Components/Plan/activity/activity.component';
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
-import { PeopleComponent } from './Components/Plan/people/people.component';
 import { HotelComponent } from './Components/Plan/hotel/hotel.component';
 import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
 import { TravelMemoryComponent } from './Components/Plan/travel-memory/travel-memory.component';
 import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
 import { DetailsComponent } from './Components/Plan/details/details.component';
-import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.component';
 import { SeeTravelWalletComponent } from './Components/Plan/see-travel-wallet/see-travel-wallet.component';
 import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.component';
 
@@ -74,9 +68,7 @@ import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.c
     LoginComponent,
     HomeComponent,
     HeaderComponent,
-    PlanningComponent,
     StartComponent,
-    FinancesComponent,
     RegisterComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
@@ -88,21 +80,17 @@ import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.c
     WalletComponent,
     AddWalletComponent,
     AddPeopleComponent,
-    WalletListComponent,
     PriceComponent,
     SeeWalletComponent,
-    SeeWalletListComponent,
     NewTravelComponent,
     PlaceComponent,
     ActivityComponent,
     TravelDetailsComponent,
-    PeopleComponent,
     HotelComponent,
     TravelWalletComponent,
     TravelMemoryComponent,
     SeeTravelComponent,
     DetailsComponent,
-    EditTravelComponent,
     SeeTravelWalletComponent,
     AppWalletComponent
   ],

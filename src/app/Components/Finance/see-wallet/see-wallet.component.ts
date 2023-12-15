@@ -1,10 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { WalletService } from 'src/app/shared/services/wallet.service';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
-import { PackingListService } from 'src/app/shared/services/packing-list.service';
-import { ActivatedRoute } from '@angular/router';
 import { WalletComponent } from '../wallet/wallet.component';
 
 @Component({
@@ -14,59 +11,12 @@ import { WalletComponent } from '../wallet/wallet.component';
 })
 export class SeeWalletComponent {
 
-  // walletName: string;
-  // costs: Array<string>;
-  // descriptions: Array<string>;
-  // whoPaid: Array<string>;
-  // currentUserEmail: string;
-  // numberOfPeople: number;
-
-
-  // constructor(
-  //   private walletService: WalletService,
-  //   private authService: AuthService,
-  //     ) {
-
-  //   const selectedWallet = this.walletService.getSelectedWallet();
-
-  //   if (selectedWallet) {
-  //     this.walletName = selectedWallet.name;
-  //     this.costs = selectedWallet.costs.map(cost => cost.cost);
-  //     this.descriptions = selectedWallet.costs.map(cost => cost.description);
-  //     this.whoPaid = selectedWallet.costs.map(cost => cost.whoPaid.email);
-  //     this.currentUserEmail = this.authService.getLoggedInUser().email;
-  //     this.numberOfPeople = selectedWallet.people.length;
-  //   }
-  // }
-
-
-
-  // calculateRepayment(index: number): number {
-  //   const totalCost = parseFloat(this.costs[index]);
-
-  //   if (this.whoPaid[index] === this.currentUserEmail) {
-  //     return totalCost * ((this.numberOfPeople - 1) / this.numberOfPeople);
-  //   } else {
-  //     return totalCost / this.numberOfPeople;
-  //   }
-  // }
-
-  // calculateDebt(index: number): number {
-  //   const totalCost = parseFloat(this.costs[index]);
-
-  //   if (this.whoPaid[index] !== this.currentUserEmail) {
-  //     return totalCost / this.numberOfPeople;
-  //   } else {
-  //     return 0;
-  //   }
-  // }
 
   finances: any[] = [];
   memoriesEmpty: boolean = false;
 
 
   constructor(
-    private route: ActivatedRoute,
     private afs: AngularFirestore,
     public dialog: MatDialog,
     private authService: AuthService

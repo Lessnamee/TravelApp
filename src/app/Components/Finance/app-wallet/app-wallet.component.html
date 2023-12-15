@@ -1,1 +1,6 @@
-<div class="memory-item">{{ name }}</div>
+<div class="memory-item">{{ name }}
+  <button mat-icon-button (click)="openPriceDialog($event)">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+

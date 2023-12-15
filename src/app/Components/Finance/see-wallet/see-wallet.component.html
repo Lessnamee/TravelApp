@@ -1,51 +1,28 @@
-
 <div class="travels-list">
   <div class="data-header">
-      <button class="add-travel-btn" mat-raised-button extended routerLink="/add-wallet">           
-          Dodaj portfel 
-          <mat-icon>add</mat-icon> 
-      </button>
+    <button class="add-travel-btn" mat-raised-button extended routerLink="/add-wallet">
+      Dodaj portfel
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
   <mat-divider></mat-divider>
 
-
-<!-- <h1>Nazwa portfela: {{ walletName }}</h1>
-
-<div *ngFor="let cost of costs; let i = index" class="panel">
-  <h2>{{ descriptions[i] }}</h2>
-  <p>Kwota: {{ cost }}</p>
-  <p>Kto płacił: {{ whoPaid[i] }}</p>
-  <p *ngIf="whoPaid[i] === currentUserEmail">
-    Dla mnie: {{ calculateRepayment(i) | currency:'PLN':'symbol':'1.2-2' }}
-  </p>
-  <p *ngIf="whoPaid[i] !== currentUserEmail">
-    Jesteś winien: {{ calculateDebt(i) | currency:'PLN':'symbol':'1.2-2' }}
-  </p>
-</div> -->
-
-<div class="memories">
-  <div class="memories-title">
+  <div class="memories">
+    <div class="memories-title">
       <h2>Twoje portfele</h2>
-  </div>
-  <mat-divider></mat-divider>
-  <br>
-
-  <ul *ngIf="memoriesEmpty; else memoriesList">
-      <li>Brak</li>
-  </ul>
-</div>
-
-<ng-template #memoriesList>
-  <div class="memories-list">
-      <div *ngFor="let wallet of finances" class="memory-item">
-        <app-wallet [name]="wallet.name" (click)="openDialog(wallet)"></app-wallet>
     </div>
-    
+    <mat-divider></mat-divider>
+    <br>
+
+    <ul *ngIf="memoriesEmpty; else memoriesList">
+      <li>Brak</li>
+    </ul>
   </div>
-  
-</ng-template>
 
-
-
-
-
+  <ng-template #memoriesList>
+    <div class="memories-list">
+      <div *ngFor="let wallet of finances" class="memory-item">
+        <app-wallet [name]="wallet.name" [wallet]="wallet" (click)="openDialog(wallet)"></app-wallet>
+      </div>
+    </div>
+  </ng-template>
