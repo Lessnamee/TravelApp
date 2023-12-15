@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { WalletService } from '../shared/services/wallet.service';
-import { AuthService } from '../shared/services/auth.service';
+import { WalletService } from '../../../shared/services/wallet.service';
+import { AuthService } from '../../../shared/services/auth.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'see-travel-wallet',
@@ -32,7 +31,7 @@ export class SeeTravelWalletComponent {
     private walletService: WalletService,
     private authService: AuthService,
     private firestore: AngularFirestore
-      ) {}
+  ) { }
 
   findWalletByTravelID(): void {
     this.firestore.collection('travel', ref => ref.where('travelId', '==', this.travelID))
@@ -77,12 +76,12 @@ export class SeeTravelWalletComponent {
     const selectedWallet = this.walletService.getSelectedWallet();
 
     if (selectedWallet && selectedWallet.costs && Array.isArray(selectedWallet.costs)) {
-        this.walletName = selectedWallet.name;
-        this.costs = selectedWallet.costs.map(cost => cost.cost);
-        this.descriptions = selectedWallet.costs.map(cost => cost.description);
-        this.whoPaid = selectedWallet.costs.map(cost => cost.whoPaid.email);
-        this.currentUserEmail = this.authService.getLoggedInUser().email;
-        this.numberOfPeople = selectedWallet.people.length;
+      this.walletName = selectedWallet.name;
+      this.costs = selectedWallet.costs.map(cost => cost.cost);
+      this.descriptions = selectedWallet.costs.map(cost => cost.description);
+      this.whoPaid = selectedWallet.costs.map(cost => cost.whoPaid.email);
+      this.currentUserEmail = this.authService.getLoggedInUser().email;
+      this.numberOfPeople = selectedWallet.people.length;
     }
   }
 

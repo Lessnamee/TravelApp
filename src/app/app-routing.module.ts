@@ -23,22 +23,23 @@ import { ActivityComponent } from './Components/Plan/activity/activity.component
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
 import { PeopleComponent } from './Components/Plan/people/people.component';
 import { HotelComponent } from './Components/Plan/hotel/hotel.component';
-import { VisitComponent } from './Components/Plan/visit/visit.component';
 import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
 import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
-import { SeeTravelWalletComponent } from './see-travel-wallet/see-travel-wallet.component';
+import { SeeTravelWalletComponent } from './Components/Plan/see-travel-wallet/see-travel-wallet.component';
+import { AddWalletComponent } from './Components/Finance/add-wallet/add-wallet.component';
+import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'start' },
-  { path: 'start', component: StartComponent, canActivate: [userNotLogGuard], data: {animation: 'Home'} },
-  { path: 'login', component: LoginComponent, canActivate: [userNotLogGuard], data: {animation: 'Login'} },
-  { path: 'register', component: RegisterComponent, canActivate: [userNotLogGuard], data: {animation: 'ForgotPasword'} },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: {animation: 'Home'}},
-  { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard], data: {animation: 'Subpage'} },
-  { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard], data: {animation: 'Subpage'} },
-  { path: 'forgot-password', component: ForgotPasswordComponent, data: {animation: 'ForgotPasword'} },
-  { path: 'memories-add', component: MemoriesAddComponent, data: {animation: 'Subpage-add-memory'} },
-  { path: 'memory-see', component: MemorySeeComponent, data: {animation: 'Subpage'} },
+  { path: 'start', component: StartComponent, canActivate: [userNotLogGuard], data: { animation: 'Home' } },
+  { path: 'login', component: LoginComponent, canActivate: [userNotLogGuard], data: { animation: 'Login' } },
+  { path: 'register', component: RegisterComponent, canActivate: [userNotLogGuard], data: { animation: 'ForgotPasword' } },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], data: { animation: 'Home' } },
+  { path: 'planning', component: PlanningComponent, canActivate: [AuthGuard], data: { animation: 'Subpage' } },
+  { path: 'finances', component: FinancesComponent, canActivate: [AuthGuard], data: { animation: 'Subpage' } },
+  { path: 'forgot-password', component: ForgotPasswordComponent, data: { animation: 'ForgotPasword' } },
+  { path: 'memories-add', component: MemoriesAddComponent, data: { animation: 'Subpage-add-memory' } },
+  { path: 'memory-see', component: MemorySeeComponent, data: { animation: 'Subpage' } },
   { path: 'date-picker', component: DatePickerComponent },
   { path: 'memory-detail', component: MemoryDetailComponent },
   { path: 'wallet', component: WalletComponent },
@@ -48,13 +49,14 @@ const routes: Routes = [
   { path: 'new-travel', component: NewTravelComponent },
   { path: 'place', component: PlanningComponent },
   { path: 'activity', component: ActivityComponent },
-  { path: 'travel-details', component: TravelDetailsComponent},
-  { path: 'people', component: PeopleComponent},
-  { path: 'hotel', component: HotelComponent},
-  { path: 'visit', component: VisitComponent},
-  { path: 'travel-wallet', component: TravelWalletComponent},
-  { path: 'see-travel', component: SeeTravelComponent},
-  { path: 'see-travel-wallet', component: SeeTravelWalletComponent},
+  { path: 'travel-details', component: TravelDetailsComponent },
+  { path: 'people', component: PeopleComponent },
+  { path: 'hotel', component: HotelComponent },
+  { path: 'travel-wallet', component: TravelWalletComponent },
+  { path: 'see-travel', component: SeeTravelComponent },
+  { path: 'see-travel-wallet', component: SeeTravelWalletComponent },
+  { path: 'add-wallet', component: AddWalletComponent },
+  { path: 'app-wallet', component: AppWalletComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

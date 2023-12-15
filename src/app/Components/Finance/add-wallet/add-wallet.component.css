@@ -1,9 +1,131 @@
-/* styles.css */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-/* Dodatkowe style dla okna dialogowego */
-.custom-dialog {
-  color: #2e2e47;; /* Kolor tła */
-  border-radius: 4px; /* Zaokrąglenie rogów */
-  padding: 16px; /* Wewnętrzny odstęp */
+.form-content {
+  display: block;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1); 
+  border-style: dashed;
+  border-color: var(--primary-color);
+  border-radius: 10px;
+  min-width: 50%;
+  width: auto;
+  padding: 30px;
+  margin: 30px; 
+}
+p {
+  margin: 0px;
+}
+.header{
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  /* padding: 10px; */
+  color: #2e2e47;
+  margin-bottom: 5px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #2e2e47;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  padding-top: 0px;
+}
+button {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background-color: #2e2e47;
+  color: #ffb01d;
+  width: 200px;
+  border-radius: 10px;
+}
+
+h2{
+  /* color: #2e2e47; */
+  /* font-size: 30px; */
+}
+
+.ng-invalid:not(form)  {
+  border: 2px solid red 
+} 
+
+.alert{
+  color: red; 
+} 
+/* :host ::ng-deep {
+  .p-dialog {
+      width: 30vw !important;
+  }
+  .p-dialog-title {
+      color: blue !important;
+      font-size: x-large;
+  }
+} */
+
+.date-input-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Przesuń ikonkę kalendarza na prawo */
+.mat-datepicker-toggle {
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+
+.date-input {
+  margin-bottom: 0px;
+}
+
+.add-memory-btn {
+  transition: all .5s ease-in-out;
+  height: var(--common-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.add-memory-btn:hover {
+  background-color: var(--primary-color-on-hover);
+  cursor: pointer;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+
+@media screen and (max-width: 400px) {
+  .add-memory-btn {
+      width: 100%;
+  }
+  
 }

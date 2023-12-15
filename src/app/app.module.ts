@@ -24,7 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 import { AppComponent } from './app.component';
@@ -59,13 +59,13 @@ import { ActivityComponent } from './Components/Plan/activity/activity.component
 import { TravelDetailsComponent } from './Components/Plan/travel-details/travel-details.component';
 import { PeopleComponent } from './Components/Plan/people/people.component';
 import { HotelComponent } from './Components/Plan/hotel/hotel.component';
-import { VisitComponent } from './Components/Plan/visit/visit.component';
 import { TravelWalletComponent } from './Components/Plan/travel-wallet/travel-wallet.component';
 import { TravelMemoryComponent } from './Components/Plan/travel-memory/travel-memory.component';
 import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.component';
 import { DetailsComponent } from './Components/Plan/details/details.component';
 import { EditTravelComponent } from './Components/Plan/edit-travel/edit-travel.component';
-import { SeeTravelWalletComponent } from './see-travel-wallet/see-travel-wallet.component';
+import { SeeTravelWalletComponent } from './Components/Plan/see-travel-wallet/see-travel-wallet.component';
+import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.component';
 
 
 @NgModule({
@@ -98,13 +98,13 @@ import { SeeTravelWalletComponent } from './see-travel-wallet/see-travel-wallet.
     TravelDetailsComponent,
     PeopleComponent,
     HotelComponent,
-    VisitComponent,
     TravelWalletComponent,
     TravelMemoryComponent,
     SeeTravelComponent,
     DetailsComponent,
     EditTravelComponent,
-    SeeTravelWalletComponent
+    SeeTravelWalletComponent,
+    AppWalletComponent
   ],
   imports: [
     BrowserModule,

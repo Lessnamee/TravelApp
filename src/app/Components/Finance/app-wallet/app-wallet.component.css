@@ -1,0 +1,22 @@
+.memory-item {
+    list-style: none; /* Usuwa wypunktowanie */
+    text-transform: capitalize; /* Zaczyna nazwę z wielkiej litery */
+    background-color: #f0f0f0; /* Tło jest nieco ciemniejsze */
+    color: var(--secondary-color);
+    padding: 10px;
+    margin-bottom: 5px;
+    box-shadow: 5px 5px 5px gray;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: all .5s ease-in-out;
+    height: var(--common-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-item:hover {
+    background-color: var(--primary-color-on-hover);
+    cursor: pointer;
+}
+

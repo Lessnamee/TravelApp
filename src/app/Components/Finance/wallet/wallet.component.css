@@ -1,2 +1,20 @@
+.title{
+    text-transform: capitalize;
+    background-color: #2e2e47;
+    color: #ffb01d;
+}
 
-  
+button {
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    /* background-color: #2e2e47; */
+    color: #ffb01d;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a5a71;
+}

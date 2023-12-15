@@ -1,5 +1,22 @@
-<h1>Nazwa portfela: {{ walletName }}</h1>
-<h2>Dodaj współwłaścicieli: </h2>
-<add-people></add-people>
-<h2>Dodaj wydatek: </h2>
-<price></price>
+<h2 mat-dialog-title class="title">Nazwa portfela: {{ walletName }}</h2>
+
+<mat-dialog-content>
+
+<div *ngFor="let cost of costs; let i = index" class="panel">
+  <h2>{{ descriptions[i] }}</h2>
+  <p>Kwota: {{ cost }}</p>
+  <p>Kto płacił: {{ whoPaid[i] }}</p>
+  <p *ngIf="whoPaid[i] === currentUserEmail">
+    Dla mnie: {{ calculateRepayment(i) | currency:'PLN':'symbol':'1.2-2' }}
+  </p>
+  <p *ngIf="whoPaid[i] !== currentUserEmail">
+    Jesteś winien: {{ calculateDebt(i) | currency:'PLN':'symbol':'1.2-2' }}
+  </p>
+</div>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Zamknij</button>
+</mat-dialog-actions>
+

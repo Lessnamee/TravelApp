@@ -168,12 +168,6 @@ export class DetailsComponent {
           });
         });
   }
-
-  // addMember(email: string) {
-  //   if (!this.tripMembers.includes(email)) {
-  //     this.tripMembers.push(email);
-  //   }
-  // }
   
   
   removeMember(email: string) {
