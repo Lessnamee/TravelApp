@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,6 +16,6 @@ export class NominatimService {
       format: 'json',
     };
 
-    return this.http.get(this.apiUrl, { params });
+    return this.http.get(this.apiUrl, { params }).pipe(tap((value) => console.log(value)));
   }
 }
