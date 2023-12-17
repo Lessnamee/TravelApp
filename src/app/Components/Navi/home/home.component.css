@@ -11,14 +11,19 @@ body {
   color: #333;
 }
 
-.map iframe {
+/* .map iframe {
   width: 100%;
   height: 500px;
   border: none;
   border-radius: 10px;
   margin-bottom: 50px auto;
   margin-top: 20px;
-}
+} */
+
+/* #map {
+  height: 600px; 
+  width: 100%;
+} */
 
 .contact-details {
   display: flex;
@@ -54,4 +59,7 @@ h2 {
   color: #2e2e47;
 }
 
-
+/* .vertical-line {
+  display: flex;
+  flex-direction: column;
+} */

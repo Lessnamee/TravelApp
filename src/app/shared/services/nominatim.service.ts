@@ -5,14 +5,17 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class GeocodingService {
-  private apiKey = 'AIzaSyCdt1KJv6GQ22rMxQmDZx6V1HxlFpwe8Fw';
+export class NominatimService {
+  private apiUrl = 'https://nominatim.openstreetmap.org/search';
 
   constructor(private http: HttpClient) {}
 
   getCoordinatesByAddress(address: string): Observable<any> {
-    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${this.apiKey}`;
-    return this.http.get(apiUrl);
+    const params = {
+      q: address,
+      format: 'json',
+    };
+
+    return this.http.get(this.apiUrl, { params });
   }
 }
-

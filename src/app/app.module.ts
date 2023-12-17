@@ -60,6 +60,7 @@ import { SeeTravelComponent } from './Components/Plan/see-travel/see-travel.comp
 import { DetailsComponent } from './Components/Plan/details/details.component';
 import { SeeTravelWalletComponent } from './Components/Plan/see-travel-wallet/see-travel-wallet.component';
 import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.component';
+import { MapComponent } from './Components/Plan/map/map.component';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.c
     SeeTravelComponent,
     DetailsComponent,
     SeeTravelWalletComponent,
-    AppWalletComponent
+    AppWalletComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
