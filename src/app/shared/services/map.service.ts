@@ -11,34 +11,36 @@ export class MapService {
   private map: mapboxgl.Map;
   private markers: mapboxgl.Marker[] = [];
 
+  private warsawCoordinates = [21.00, 52.13];
+
   constructor(private afs: AngularFirestore) {
     mapboxgl.accessToken = this.mapboxToken;
   }
 
   initializeMap(container: string) {
-    mapboxgl.accessToken = 'pk.eyJ1Ijoia2luZ3VzaWEzMTkiLCJhIjoiY2xxOWhvOGd1MWk2ZjJpcHNuZ21wcXdzeCJ9.D1o93u2Gsgado1K4QI5cLA';
-    // const coordinates = document.getElementById('coordinates');
-    const map = new mapboxgl.Map({
-    container: 'map',
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: 'mapbox://styles/mapbox/streets-v12',
-    center: [0, 0],
-    zoom: 2
-    });
-    
-    const marker = new mapboxgl.Marker({
-    draggable: true
-    })
-    .setLngLat([0, 0])
-    .addTo(map);
-    // this.map = new mapboxgl.Map({
-    //   container,
-    //   style: 'mapbox://styles/mapbox/streets-v11',
-    //   center: [0, 0],
-    //   zoom: 2,
+    // mapboxgl.accessToken = 'pk.eyJ1Ijoia2luZ3VzaWEzMTkiLCJhIjoiY2xxOWhvOGd1MWk2ZjJpcHNuZ21wcXdzeCJ9.D1o93u2Gsgado1K4QI5cLA';
+    // // const coordinates = document.getElementById('coordinates');
+    // const map = new mapboxgl.Map({
+    // container: 'map',
+    // // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    // style: 'mapbox://styles/mapbox/streets-v12',
+    // center: [0, 0],
+    // zoom: 2
     // });
+    
+    // const marker = new mapboxgl.Marker({
+    // draggable: true
+    // })
+    // .setLngLat([0, 0])
+    // .addTo(map);
+    this.map = new mapboxgl.Map({
+      container,
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [...this.warsawCoordinates],
+      zoom: 2,
+    });
   
-    // this.loadMemories();
+    this.loadMemories();
   }
 
   clearMarkers() {
@@ -50,7 +52,6 @@ export class MapService {
     this.clearMarkers(); 
   
     this.afs.collection('memories').valueChanges().subscribe((memories: any[]) => {
-      memories = [memories[0]]
       // const bounds = this.calculateBoundsForMemories(memories);
   
       // console.log('Bounds:', bounds);
@@ -97,15 +98,15 @@ export class MapService {
     // this.map.addControl(new mapboxgl.AttributionControl({
     //   customAttribution: 'Map design by me'
     //   }));
-    this.map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-      enableHighAccuracy: true
-      },
-      trackUserLocation: true,
-      showUserHeading: true
-      }));
+    // this.map.addControl(new mapboxgl.GeolocateControl({
+    //   positionOptions: {
+    //   enableHighAccuracy: true
+    //   },
+    //   trackUserLocation: true,
+    //   showUserHeading: true
+    //   }));
     return new mapboxgl.Marker()
-        .setLngLat([0.0, 0.0])
+        .setLngLat([longitude, latitude])
         // .setLngLat([parseFloat(longitude), parseFloat(latitude)])
         .setPopup(new mapboxgl.Popup().setHTML(`<h3>${memory.name}</h3><p>${memory.description}</p>`))
         .addTo(this.map);
