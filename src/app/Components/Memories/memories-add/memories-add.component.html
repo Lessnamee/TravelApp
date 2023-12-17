@@ -35,6 +35,16 @@
             </small>
           </mat-form-field>
         </div>
+
+        <div class="field">
+          <mat-form-field>
+            <mat-label>Lokalizacja:</mat-label>
+            <textarea matInput rows="3" pInputTextarea formControlName="location"></textarea>
+            <small class="p-error block" *ngIf="memoryForm.get('location')?.invalid && memoryForm.get('location')?.dirty">
+              Nieprawidłowa lokalizacja
+            </small>
+          </mat-form-field>
+        </div>
   
         <div class="buttons">
           <button class="add-memory-btn" type="submit" >Dodaj wspomnienie</button>
