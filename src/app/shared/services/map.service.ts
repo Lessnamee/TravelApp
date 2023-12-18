@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import * as mapboxgl from 'mapbox-gl';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +13,7 @@ export class MapService {
 
   private warsawCoordinates = [21.00, 52.13];
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private authService: AuthService) {
     mapboxgl.accessToken = this.mapboxToken;
   }
 
@@ -32,13 +33,26 @@ export class MapService {
     this.markers = [];
   }
 
+
   loadMemories() {
     this.clearMarkers();
-
-    this.afs.collection('memories').valueChanges().subscribe((memories: any[]) => {
-      this.markers = memories.map(memory => this.createMemoryMarker(memory));
-    });
+  
+    const loggedInUser = this.authService.getLoggedInUser();
+  
+    if (loggedInUser) {
+      const userUid = loggedInUser.uid; 
+  
+      this.afs.collection('memories', ref => ref.where('userId', '==', userUid))
+        .valueChanges()
+        .subscribe((memories: any[]) => {
+          this.markers = memories.map(memory => this.createMemoryMarker(memory));
+        });
+    } else {
+      console.warn('Użytkownik nie jest zalogowany');
+    }
   }
+  
+  
 
   createMemoryMarker(memory: any) {
     const { latitude, longitude } = memory;
