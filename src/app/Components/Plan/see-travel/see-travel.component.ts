@@ -53,5 +53,25 @@ export class SeeTravelComponent {
     });
   }
 
+  deleteTravel(travel) {
+    const travelID = travel.travelId;
+  
+    if (travelID) {
+      this.firestore.collection('travel', ref => ref.where('travelId', '==', travelID))
+        .get()
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete().then(() => {
+              console.log('Wycieczka została pomyślnie usunięta.');
+            }).catch(error => {
+              console.error('Błąd podczas usuwania wycieczki: ', error);
+            });
+          });
+        });
+    } else {
+      console.warn('Nieprawidłowy identyfikator wycieczki.');
+    }
+  }
+
   
 }

@@ -48,5 +48,25 @@ export class SeeWalletComponent {
     });
   }
 
-}
 
+  deleteWallet(wallet) {
+    const walletID = wallet.walletId;
+  
+    if (walletID) {
+      this.afs.collection('finances', ref => ref.where('walletId', '==', walletID))
+        .get()
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete().then(() => {
+              console.log('Portfel został pomyślnie usunięty.');
+            }).catch(error => {
+              console.error('Błąd podczas usuwania portfela: ', error);
+            });
+          });
+        });
+    } else {
+      console.warn('Nieprawidłowy identyfikator portfela.');
+    }
+  }
+  
+}

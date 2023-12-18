@@ -46,7 +46,9 @@ export class MemoriesAddComponent {
                 location: location,
                 userId: this.authService.getLoggedInUser().uid,
                 latitude: locationData.lat,
-                longitude: locationData.lon
+                longitude: locationData.lon,
+                memoryId: this.afs.createId(),
+
               };
 
               this.afs.collection('memories').add(memoryData).then(docRef => {

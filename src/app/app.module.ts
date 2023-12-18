@@ -63,6 +63,7 @@ import { AppWalletComponent } from './Components/Finance/app-wallet/app-wallet.c
 import { MapComponent } from './Components/Plan/map/map.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +95,7 @@ import { MapComponent } from './Components/Plan/map/map.component';
     DetailsComponent,
     SeeTravelWalletComponent,
     AppWalletComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     BrowserModule,

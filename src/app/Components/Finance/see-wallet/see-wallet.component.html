@@ -23,6 +23,9 @@
     <div class="memories-list">
       <div *ngFor="let wallet of finances" class="memory-item">
         <app-wallet [name]="wallet.name" [wallet]="wallet" (click)="openDialog(wallet)"></app-wallet>
+        <button mat-icon-button (click)="deleteWallet(wallet)">
+          <mat-icon>remove</mat-icon>
+        </button>
       </div>
     </div>
   </ng-template>

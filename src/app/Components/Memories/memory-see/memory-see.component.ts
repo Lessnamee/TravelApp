@@ -68,6 +68,28 @@ export class MemorySeeComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
+  deleteMemory(memory) {
+    const memoryID = memory.memoryId
+  
+    if (memoryID) {
+      this.afs.collection('memories', ref => ref.where('memoryId', '==', memoryID))
+        .get()
+        .subscribe(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete().then(() => {
+              console.log('Wspomnienie zostało pomyślnie usunięte.');
+            }).catch(error => {
+              console.error('Błąd podczas usuwania wspomnienia: ', error);
+            });
+          });
+        });
+    } else {
+      console.warn('Nieprawidłowy identyfikator portfela.');
+    }
+  }
+
 }
 
 
