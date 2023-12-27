@@ -66,10 +66,7 @@ button {
     border-radius: 10px;
   }
 
-h2{
-    /* color: #2e2e47; */
-    /* font-size: 30px; */
-}
+
 
 .ng-invalid:not(form)  {
     border: 2px solid red 
@@ -78,22 +75,13 @@ h2{
 .alert{
     color: red; 
 } 
-/* :host ::ng-deep {
-    .p-dialog {
-        width: 30vw !important;
-    }
-    .p-dialog-title {
-        color: blue !important;
-        font-size: x-large;
-    }
-} */
+
 
 .date-input-container {
     display: flex;
     align-items: center;
   }
-  
-  /* Przesuń ikonkę kalendarza na prawo */
+ 
   .mat-datepicker-toggle {
     margin-right: auto;
     margin-bottom: 10px;

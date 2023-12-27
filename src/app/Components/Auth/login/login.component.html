@@ -23,17 +23,16 @@
       <button id="login-button" class="text-shadow" type="submit" (click)="authService.SignIn(loginForm.get('email').value, loginForm.get('password').value)"
       >Zaloguj się</button>
     </div>
-    <div class="forgotPassword">
+    <div class="buttons">
       <button id="forgotPassword" class="text-shadow" routerLink="/forgot-password"
       >Zapomniałem hasła</button>
     </div>
-    <div class="forgotPassword">
+    <div class="buttons">
       <button id="createAccount" routerLink="/register"
       >Utwórz konto</button>
     </div>      
   </form>
 
-    <!-- <register></register> -->
 </div>
 
 

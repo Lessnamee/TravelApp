@@ -7,9 +7,8 @@
       <input type="text" pInputText placeholder="E-mail" formControlName="email" />
       <small
         class="p-error block"
-        *ngIf = 
-        "signupForm.get('email')?.invalid && signupForm.get('email')?.dirty"
-        >Email musi być poprawny</small>
+        *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.dirty"
+      >Email musi być poprawny</small>
     </div>
     <div formGroupName="passwords">
       <div class="field">
@@ -18,11 +17,10 @@
           pInputText
           placeholder="Hasło"
           formControlName="password" />
-          <small
-            class="p-error block"
-            *ngIf = 
-            "signupForm.get('passwords')?.get('password')?.invalid && signupForm.get('passwords')?.get('password')?.dirty"
-            >Hasło musi mieć co najmniej 8 znaków</small>
+        <small
+          class="p-error block"
+          *ngIf="signupForm.get('passwords.password')?.invalid && signupForm.get('passwords.password')?.dirty"
+        >Hasło musi mieć co najmniej 8 znaków</small>
       </div>
 
       <div class="field">
@@ -31,15 +29,19 @@
           pInputText
           placeholder="Powtórz hasło"
           formControlName="repeatpassword" />
-          <small
-            class="p-error block"
-            *ngIf = 
-            "signupForm.get('passwords')?.hasError('notSame') && signupForm.get('passwords')?.get('repeatpassword')?.dirty"
-            >Hasła muszą być zgodne</small>
+        <small
+          class="p-error block"
+          *ngIf="signupForm.hasError('notSame') && signupForm.get('passwords.repeatpassword')?.dirty"
+        >Hasła muszą być zgodne</small>
       </div>
     </div>
     <div class="buttons">
-      <button id="signup-button" class="text-shadow" type="submit" (click)="authService.SignUp(signupForm.get('email').value, signupForm.get('passwords.password').value)">Zarejestruj się</button>
+      <button
+        id="signup-button"
+        class="text-shadow"
+        type="submit"
+        (click)="authService.SignUp(signupForm.get('email').value, signupForm.get('passwords.password')?.value)"
+      >Zarejestruj się</button>
     </div>
   </form>
 </div>

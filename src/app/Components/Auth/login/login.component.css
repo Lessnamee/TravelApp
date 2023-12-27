@@ -1,4 +1,4 @@
-:host {
+/* :host {
   display: flex;
   justify-content: center;
 }
@@ -9,16 +9,10 @@
   padding: 15px;
 }
 
-/* .title {
-  background-color: var(--primary-color);
-  color: var(--secondary-color) !important;
-  border-radius: 15px;
-} */
 
 button {
   display: flex;
   justify-content: space-around;
-  /* padding: 15px; */
   background-color: #2e2e47;
   color: #ffb01d;
   width: 200px;
@@ -27,13 +21,11 @@ button {
 .buttons {
   display: flex;
   justify-content: space-around;
-  /* padding: 15px; */
 }
 
 .forgotPassword {
   display: flex;
   justify-content: space-around;
-  /* padding: 15px; */
 }
 
 .field h2 {
@@ -63,7 +55,6 @@ button {
   transition: all .5s ease-in-out;
 }
 input {
-  /* width: 100%; */
   min-width: 300px;
   padding: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -89,23 +80,7 @@ form {
   box-shadow: 5px 13px 98px -18px rgba(66, 68, 90, 1);
   }
 
-/* :host ::ng-deep {
-  .p-dialog {
-    width: 30vw !important;
-  }
-  .p-dialog-title {
-    color: #2e2e47 !important;
-    font-size: x-large;
-  }
-} */
 
-.ng-invalid:not(form)  {
-  border: 2px solid red 
-} 
-
-.alert{
-  color: red;
-} 
 
 
 button {
@@ -113,3 +88,77 @@ button {
 } 
 
 
+ */
+
+ .ng-invalid:not(form)  {
+  border: 2px solid red 
+} 
+
+.alert{
+  color: red;
+} 
+
+ :host {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+button {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background-color: #2e2e47;
+  color: #ffb01d;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+.field h2 {
+  font-size: 30px;
+  padding: 0;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.field * {
+  left: 0;
+}
+#signup-button:hover {
+  background-color: var(--primary-color-on-hover);
+  transition: all .5s ease-in-out;
+}
+
+form {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 50px;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 5px 13px 98px -18px rgba(66, 68, 90, 1);
+  -moz-box-shadow: 5px 13px 98px -18px rgba(66, 68, 90, 1);
+  box-shadow: 5px 13px 98px -18px rgba(66, 68, 90, 1);
+  }
