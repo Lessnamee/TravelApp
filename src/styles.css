@@ -44,3 +44,13 @@ button {
   color: var(--secondary-color) !important;
   border-radius: 15px;
 }
+
+
+.mat-divider{
+  background-color: var(--secondary-color);
+}
+
+.item-to-take {
+  display: flex;
+  justify-content: space-evenly;
+}

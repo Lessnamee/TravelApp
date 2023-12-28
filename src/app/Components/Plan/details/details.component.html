@@ -1,33 +1,44 @@
 <h2 mat-dialog-title class="title">{{ data.travel.name }}</h2>
 <mat-dialog-content>
   <div *ngIf="weatherData" class="weather-info">
-    <h2>Gdzie się wybierasz? {{ weatherData.sys.country }}, {{ weatherData.name }}</h2>
-    <h2>Aktualna pogoda w tym miejscu: {{ weatherData.main.temp }} °C</h2>
+    <h2 class="destination">
+      Gdzie się wybierasz? <div class="destination-value">{{ weatherData.sys.country }}, {{ weatherData.name }}</div>
+    </h2>
+    <h2 class="destination">Aktualna pogoda w tym miejscu: <div class="destination-value">{{ weatherData.main.temp }} °C</div></h2>
   </div>
+  <mat-divider></mat-divider>
 
-  <h5>Skład wycieczki:</h5>
-<ul>
-  <li *ngFor="let member of tripMembers">
-    {{ member.email }}
-  </li>
-</ul>
+  <h3 class="teammembers">Skład wycieczki:</h3>
+<!-- <ul> -->
+  <h4 *ngFor="let member of tripMembers">
+    - {{ member.email }}
+  </h4>
+<!-- </ul> -->
 
-<mat-form-field>
-  <mat-label>Users</mat-label>
-  <mat-select [formControl]="user" multiple>
-    <mat-option *ngFor="let user of userList" [value]="user" >{{ user.email }}</mat-option>
-  </mat-select>
-</mat-form-field>
+<div class="user-changer">
+  <mat-form-field>
+    <mat-label>Zamień współtowarzyszy</mat-label>
+    <mat-select [formControl]="user" multiple>
+      <mat-option *ngFor="let user of userList" [value]="user" >{{ user.email }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <button class="btn" (click)="chooseUsers()">Zmień skład</button>
+</div>
 
-<button (click)="chooseUsers()">Zmień skład</button>
+<mat-divider></mat-divider>
 
-  <h5>Rzeczy do zabrania:</h5>
+  <h3 class="teammembers">Rzeczy do zabrania:</h3>
   <ul>
-    <li *ngFor="let thing of visibleThings">
+    <li *ngFor="let thing of visibleThings" class="item-to-take">
+      <div class="const-width">
       {{ thing }}
+      </div>
+      <div class="const-width">
       <button mat-icon-button (click)="removeThing(thing)">
         <mat-icon>remove</mat-icon>
       </button>
+    </div>
     </li>
   </ul>
 
@@ -36,18 +47,22 @@
       <input matInput placeholder="Nowa rzecz" [(ngModel)]="newThing">
     </mat-form-field>
 
-    <button mat-button (click)="addThing()">
+    <button class="input-button btn" mat-button (click)="addThing()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
+  <mat-divider></mat-divider>
 
-  <h5>Atrakcje:</h5>
+  <h3 class="teammembers">Atrakcje:</h3>
   <ul>
-    <li *ngFor="let visit of visibleVisits">
-      <a href="{{ visit.link }}" target="_blank">{{ visit.place }}</a>
-      <button mat-icon-button (click)="removeVisit(visit)">
-        <mat-icon>remove</mat-icon>
-      </button>
+    <li *ngFor="let visit of visibleVisits" class="item-to-take">
+      <div class="const-width">
+        <a href="{{ visit.link }}" target="_blank">{{ visit.place }}</a>
+      </div>
+      <div class="const-width">
+        <button mat-icon-button (click)="removeVisit(visit)">
+          <mat-icon>remove</mat-icon>
+      </button>        </div>     
     </li>
   </ul>
 
@@ -60,18 +75,24 @@
       <input matInput placeholder="Link do atrakcji" [(ngModel)]="newVisitLink">
     </mat-form-field>
 
-    <button mat-button (click)="addVisit()">
+    <button class="input-button btn" mat-button (click)="addVisit()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
+  <mat-divider></mat-divider>
 
-  <h5>Noclegi:</h5>
+  <h3 class="teammembers">Noclegi:</h3>
   <ul *ngIf="data.travel.selectedHotel">
-    <li *ngFor="let hotel of visibleHotel">
-      <a href="{{ hotel.link }}" target="_blank">{{ hotel.place }}</a>
-      <button mat-icon-button (click)="removeHotel(hotel)">
-        <mat-icon>remove</mat-icon>
-      </button>
+    <li *ngFor="let hotel of visibleHotel" class="item-to-take">
+      <div class="const-width">
+        <a href="{{ hotel.link }}" target="_blank">{{ hotel.place }}</a>
+      </div>
+      <div class="const-width">
+        <button mat-icon-button (click)="removeHotel(hotel)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </div>
+      
     </li>
   </ul>
 
@@ -84,17 +105,19 @@
       <input matInput placeholder="Link do noclegu" [(ngModel)]="newHotelLink">
     </mat-form-field>
 
-    <button mat-button (click)="addHotel()">
+    <button class="input-button btn" mat-button (click)="addHotel()">
       <mat-icon>add</mat-icon>
     </button>
   </div>
 
+  <mat-divider></mat-divider>
 
-  <h5>Wydatki:</h5>
+  <h3 class="teammembers">Wydatki:</h3>
   <see-travel-wallet [travelID]="travelID"></see-travel-wallet>
 
-  <mat-form-field>
-      <mat-label>Wallets</mat-label>
+  <div class="new-thing-container">
+    <mat-form-field>
+      <mat-label>Portfel</mat-label>
       <mat-select [formControl]="wallet">
           <mat-select-trigger>
               {{ wallet.value || '' }}
@@ -103,27 +126,32 @@
 
       </mat-select>
   </mat-form-field>
-  <mat-dialog-actions>
-    <button mat-button (click)="addWallet()">Dodaj lub zamień</button>
-</mat-dialog-actions>
+    <button class="input-button btn" mat-button (click)="addWallet()">Dodaj lub zamień</button>
+  </div>
+  
+<mat-divider></mat-divider>
 
-<h5>Wspomnienia: </h5>
-<button mat-raised-button (click)="openDialog()">Dodaj wspomnienie</button>
+<div class="new-thing-container" style="justify-content: space-between; margin-top: 10px;">
+  <h3 class="teammembers">Wspomnienia: </h3>
+  <button class="btn" mat-raised-button (click)="openDialog()">Dodaj wspomnienie</button>
+</div>
 
-<div *ngIf="data.travel.memory">
-  <div *ngFor="let memory of data.travel.memory">
-    <h6>Nazwa: {{ memory.name }}</h6>
+<div *ngIf="data.travel.memory" >
+  <div *ngFor="let memory of data.travel.memory" class="panel">
+    <h5>{{ memory.name }}</h5>
     <p>Opis: {{ memory.description }}</p>
     <p>Data dodania: {{ memory.date.toDate() | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
   </div>
 </div>
 
+<mat-divider></mat-divider>
 
 
 </mat-dialog-content>
 
+
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Zamknij</button>
+  <button class="btn" mat-button mat-dialog-close>Zamknij</button>
 </mat-dialog-actions>
 
 

@@ -1,0 +1,17 @@
+h2, h5, h3, h4 {
+    color: #2e2e47;
+    margin-bottom: 10px;
+  }
+
+.panel {
+    border: dashed;
+    margin-bottom: 10px;
+}
+
+p{
+    margin: 10px;
+}
+
+h5{
+    margin: 10px;
+}

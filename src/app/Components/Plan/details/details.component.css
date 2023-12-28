@@ -1,0 +1,126 @@
+.title {
+    color: #2e2e47;
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-radius: 0;
+  }
+  
+  .weather-info {
+    /* background-color: #ffb01d; */
+    border: dashed;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h5, h3, h4 {
+    color: #2e2e47;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    height: var(--common-height);
+  }
+  
+  button:hover {
+    background-color: var(--primary-color-on-hover);
+  }
+  
+  .new-thing-container,
+  .new-visit-container,
+  .new-hotel-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .new-thing-container mat-form-field,
+  .new-visit-container mat-form-field,
+  .new-hotel-container mat-form-field {
+    margin-right: 10px;
+    flex: 1;
+  }
+  
+  a {
+    color: #2e2e47;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  a:hover {
+    color: #ffb01d;
+  }
+  
+  /* Nowe style dla plusów i minusów */
+  mat-icon {
+    margin-left: 5px;
+    margin-right: 5px;
+    /* color: #2e2e47; */
+    cursor: pointer;
+  }
+  
+  mat-icon:hover {
+    color: #ffb01d;
+  }
+  
+.destination {
+    display: flex;
+    justify-content: space-between;
+}
+.destination-value {
+    font-weight: 900;
+}
+
+.teammembers {
+    font-weight: 900;
+}
+
+.user-changer {
+    display: flex;
+}
+
+.const-width {
+    width: 40px;
+}
+
+.input-button {
+    margin-top: -36px;
+}
+
+.panel {
+    border: dashed;
+    margin-bottom: 10px;
+}
+
+p{
+    margin: 10px;
+}
+
+h5{
+    margin: 10px;
+}

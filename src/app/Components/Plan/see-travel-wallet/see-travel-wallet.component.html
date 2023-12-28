@@ -1,7 +1,7 @@
-<h1>Nazwa portfela: {{ walletName }}</h1>
+<h4>Nazwa portfela: {{ walletName }}</h4>
 
 <div *ngFor="let cost of costs; let i = index" class="panel">
-  <h2>{{ descriptions[i] }}</h2>
+  <h5>{{ descriptions[i] }}</h5>
   <p>Kwota: {{ cost }}</p>
   <p>Kto płacił: {{ whoPaid[i] }}</p>
   <p *ngIf="whoPaid[i] === currentUserEmail">
