@@ -14,22 +14,19 @@
         <mat-divider></mat-divider>
         <br>
     
-        <ul *ngIf="travelsEmpty; else travelsList">
-            <li>Brak podróży.</li>
-        </ul>
+        <div *ngIf="travelsEmpty; else travelsList">
+            <div>Brak podróży.</div>
+        </div>
     </div>
     
     <ng-template #travelsList>
         <div class="travels-list">
-            <div *ngFor="let travel of travels" class="travel-item">
-                <div class="travel-details" (click)="openDialog(travel)" >
+            <div *ngFor="let travel of travels" class="travel-item" (click)="openDialog(travel)" >
                     <div class="travel-name">{{ travel.name }}</div>
-                    <button mat-icon-button (click)="deleteTravel(travel)">
-                        <mat-icon>remove</mat-icon>
-                      </button>
-                  
-                </div>
-                <mat-divider></mat-divider>
+                    <div class="end-column">
+                        <button mat-icon-button (click)="deleteTravel($event, travel)">
+                            <mat-icon>remove</mat-icon>
+                        </button></div>    
             </div>
         </div>
     </ng-template>
