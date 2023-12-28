@@ -1,9 +1,7 @@
-import { Component, Inject, Input} from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { PackingListService } from 'src/app/shared/services/packing-list.service';
-import { WalletService } from 'src/app/shared/services/wallet.service';
 
 @Component({
   selector: 'wallet',
@@ -20,7 +18,6 @@ export class WalletComponent{
   numberOfPeople: number;
 
   visibleCost: string[] = [];
-
   
 
   constructor(

@@ -20,3 +20,8 @@
     cursor: pointer;
 }
 
+.end-column {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+}

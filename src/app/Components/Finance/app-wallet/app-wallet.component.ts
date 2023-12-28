@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WalletService } from 'src/app/shared/services/wallet.service';
 import { PriceComponent } from '../price/price.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,6 +12,13 @@ export class AppWalletComponent {
 
   @Input() name: string;
   @Input() wallet;
+
+  @Output() removeWalletEvent = new EventEmitter<void>();
+
+  removeWalletHandler(event: Event): void {
+    event.stopPropagation();
+    this.removeWalletEvent.emit();
+  }
 
   constructor(
     private walletService: WalletService,
