@@ -53,7 +53,8 @@ export class SeeTravelComponent {
     });
   }
 
-  deleteTravel(travel) {
+  deleteTravel(event: Event, travel) {
+    event.stopPropagation();
     const travelID = travel.travelId;
   
     if (travelID) {
