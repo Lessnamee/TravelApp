@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-memory',
@@ -8,5 +8,10 @@ import { Component, Input } from '@angular/core';
 export class MemoryComponent {
   @Input() name: string;
   @Input() description: string;
+  @Output() removeMemoryEvent = new EventEmitter<void>();
 
+  removeMemoryHandler(event: Event): void {
+    event.stopPropagation();
+    this.removeMemoryEvent.emit();
+  }
 }

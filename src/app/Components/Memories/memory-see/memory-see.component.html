@@ -23,10 +23,10 @@
     <ng-template #memoriesList>
         <div class="memories-list">
             <div *ngFor="let memory of memories" class="memory-item">
-                <app-memory [name]="memory.name" (click)="openDialog(memory)"></app-memory>
-                <button mat-icon-button (click)="deleteMemory(memory)">
+                <app-memory [name]="memory.name" (click)="openDialog(memory)" (removeMemoryEvent)="deleteMemory(memory)"></app-memory>
+                <!-- <button mat-icon-button (click)="deleteMemory(memory)">
                     <mat-icon>remove</mat-icon>
-                  </button>
+                  </button> -->
             </div>
         </div>
         

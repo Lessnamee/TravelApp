@@ -1,1 +1,10 @@
-<div class="memory-item">{{ name }}</div>
+<div class="memory-item">
+    <div class="text">
+        {{ name }}
+    </div>
+    <div class="end-column">
+        <button mat-icon-button (click)="removeMemoryHandler($event)">
+            <mat-icon>remove</mat-icon>
+          </button>
+    </div>
+</div>
